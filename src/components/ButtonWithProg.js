@@ -13,11 +13,13 @@ const ButtonWithProg = (props) => {
     icon,
     fab,
     spinsize,
+    size
     
   } = props;
   const [white, SetWhite] = useState("false");
   return (
     <button
+    pendingApiCall={pendingApiCall}
       className={className}
       onClick={onClick}
       disabled={disabled}
@@ -28,7 +30,7 @@ const ButtonWithProg = (props) => {
           fab={fab}
           icon={icon}
           style={{ color: "#03a9f4" }}
-          size="2x"
+          size={size}
           spin={spinsize}
         ></MDBIcon>
       ) : (
@@ -36,7 +38,7 @@ const ButtonWithProg = (props) => {
           fab={fab}
           icon={icon}
           style={{ color: "#03a9f4" }}
-          size="2x"
+          size={size}
           spin={spinsize}
         ></MDBIcon>
       )}

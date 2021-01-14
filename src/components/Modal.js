@@ -2,7 +2,15 @@ import React from "react";
 import ButtonWithProg from "./ButtonWithProg";
 
 const Modal = (props) => {
-  const { visible, onClickCancel, message, onClickOk, pendingApiCall,title,okButton } = props;
+  const {
+    visible,
+    onClickCancel,
+    message,
+    onClickOk,
+    pendingApiCall,
+    title,
+    okButton,
+  } = props;
   let className = "modal fade";
   if (visible) {
     className += "show d-block";
@@ -32,7 +40,6 @@ const Modal = (props) => {
                 pendingApiCall={pendingApiCall}
                 disable={pendingApiCall}
                 text={okButton}
-                
               ></ButtonWithProg>
             </div>
           </div>

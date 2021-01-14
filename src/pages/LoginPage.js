@@ -1,10 +1,14 @@
 import { blue } from "@material-ui/core/colors";
 import { MDBInputGroup, MDBView } from "mdbreact";
-import React from "react";
+import React, { useState } from "react";
 import twitter from "../assets/twitter.png";
 import ButtonWithProg from "../components/ButtonWithProg";
 import InputComp from "../components/InputComp";
 const LoginPage = () => {
+  const[email,SetEmail]=useState();
+  const[password,SetPassword]=useState();
+  const[error,SetError]=useState();
+  const dispatch=useDispatch();
   return (
     <div class="container">
   <div class="row">

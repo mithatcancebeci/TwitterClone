@@ -1,4 +1,4 @@
-import "./App.css";
+
 import {
   Route,
   HashRouter as Router,
@@ -6,14 +6,15 @@ import {
   Switch,
 } from "react-router-dom";
 
-import LoginPage from "./pages/LoginPage"
+import UserSignUpPage from "./pages/UserSingUpPage"
 import HomePage from "./pages/HomePage";
 import Nav from "./components/Nav";
+import MoreButton from "./components/MoreButton";
 const App = (props) => {
   return (
     <div>
       <Router>
-<Nav></Nav>
+<UserSignUpPage></UserSignUpPage>
       
       </Router>
     </div>

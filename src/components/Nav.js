@@ -11,6 +11,7 @@ const Nav = (props) => {
           <NavComp
             icon="twitter"
             fab="fab"
+            size={size}
             onClick={() => console.log("tıklandı")}
           ></NavComp>
           <NavComp text="Home" icon="home" size={size}></NavComp>

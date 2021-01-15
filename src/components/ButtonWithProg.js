@@ -19,7 +19,7 @@ const ButtonWithProg = (props) => {
   const [white, SetWhite] = useState("false");
   return (
     <button
-    pendingApiCall={pendingApiCall}
+    
       className={className}
       onClick={onClick}
       disabled={disabled}

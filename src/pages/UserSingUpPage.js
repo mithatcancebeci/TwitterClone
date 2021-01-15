@@ -4,8 +4,8 @@ import Modal from "../components/Modal";
 import InputComp from "../components/InputComp";
 import { MDBIcon } from "mdbreact";
 import ButtonWithProg from "../components/ButtonWithProg";
-import axios from "axios";
-const UserSingUpPage = () => {
+import {signup, singup} from '../api/apiCall'
+const UserSingUpPage = (props) => {
   const [form, SetForm] = useState({
     username: null,
     password: null,
@@ -22,8 +22,8 @@ const UserSingUpPage = () => {
     formCopy[name] = value;
     SetForm((previousForm) => ({ ...previousForm, [name]: value }));
   };
-  const [pendingApiCall,SetpendingApiCall]=useState(true)
-  const onClickSignUp =  (event) => {
+  const [pendingApiCall,SetpendingApiCall]=useState(false)
+  const onClickSignUp = async (event) => {
     event.preventDefault();
 
   const {username,password,email}=form;
@@ -32,45 +32,53 @@ const UserSingUpPage = () => {
     email,
     password,
   }
-  
-  axios
-    .post("/api/1.0/addUser", body)
-    .then((response) => {
-      SetpendingApiCall(false)
-    })
-    .catch((error) => {
-      if (error.response.data.validationErrors) {
-        SetErrors(error.response.data.validationErrors ) ;
-       SetpendingApiCall(false) }
-    
-    });}
+  SetpendingApiCall(true)
+ 
+  try {
+  const response= await signup(body);
+  } catch (e) {
+        console.log(e.response.data)
+    if(e.response.data.validationErrors)
+
+   SetErrors(e.response.data.validationErrors)  }
+  SetpendingApiCall(false);
+}
+    const {username:usernameError,password:passwordError,email:emailError}=errors;
+    let passwordRepeatError;
+    if(form.password!==form.passwordRepeat){
+      passwordRepeatError="Password mismatch"
+    }
+
   return (
-    <div className="container mt-5 pt-5 mr-auto ">
-      <div className="card text-center" style={{ width: "1100px" }}>
-        <div className="card-text rounded-start">
-         
-          <MDBIcon
+    <div className="container mt-5  pt-5 " style={{width:"700px"}}>
+      <div className="card text-center shadow-lg " style={{borderRadius:"20px",width:"600px",height:"597px"}}>
+        <div className="card-text">
+            <MDBIcon
             fab
+            className="pt-3"
             icon="twitter"
-            style={{ color: "#03a9f4" }}
-            size="2x"
+            style={{ color: "#1da1f2"}}
+            size="lg"
           ></MDBIcon> 
         </div>
         <div className="card-body">
-          <h5 className="text-left" style={{fontFamily:"Arial"}}><strong>Create an account</strong></h5>
-          <InputComp label="Name" type="text" onChange={onChangeEvent}></InputComp>
-          <InputComp label="Email" type="email" onChange={onChangeEvent}></InputComp>
-          <InputComp label="Password" type="password" onChange={onChangeEvent}></InputComp>
-          <InputComp label="PasswordRepeat" type="password"></InputComp>
-          <ButtonWithProg
-          pendingApiCall={pendingApiCall}
+          <b className="text-left" style={{fontFamily:"inherit",fontSize:23}}><p>Create an account</p></b>
+        
+          <InputComp name="username" label="Name" type="text" onChange={onChangeEvent} error={usernameError} size="lg"></InputComp>
+          <InputComp name="email"label="Email" type="email" onChange={onChangeEvent}   error={emailError} size="lg"></InputComp>
+          <InputComp name="password" label="Password" type="password" onChange={onChangeEvent} error={passwordError} size="lg"></InputComp>
+          <InputComp name="passwordRepeat" label="PasswordRepeat" type="password"    onChange={onChangeEvent}error={passwordRepeatError} size="lg"></InputComp>
+         <div className="p-5">       <ButtonWithProg
+            disabled={pendingApiCall}
             className="btn  rounded-pill pl-3 "
             icon="signature"
             size="1x"
             style={{ width: "150px", height: "60px" }}
             text="SignUp"
             onClick={onClickSignUp}
-          ></ButtonWithProg>
+          ></ButtonWithProg></div>
+           
+       
         </div>
       </div>
     </div>

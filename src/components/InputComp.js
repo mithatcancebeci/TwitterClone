@@ -3,18 +3,20 @@ import React from 'react';
 
 
 const InputComp = (props) => {
-    const{type,onChange,error,label,className,size,style}=props
+    const{name,type,onChange,error,label,size,style,defaultValue}=props
  
-
+let className="form-control"
     if(error!==undefined){
-        className+="is-invalid"
-    }
+        className+=" is-invalid"
+        
+    }   
     return (
-    <div>
-     
-           <MDBInput className={className||"form-control"} style={style} label={label} type={type} onChange={onChange} outline  size={size}  />
-            <div className="invalid-feedback">{props.error}</div>
-     </div>
+ 
+      <div className="form-group ">
+           <MDBInput className={className} style={style} name={name}label={label} type={type} onChange={onChange} outline  size={size} value={defaultValue} >
+            <div className="invalid-feedback"><span>{props.error}</span></div></MDBInput>
+            </div>
+   
     );
 };
 

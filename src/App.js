@@ -10,11 +10,13 @@ import UserSignUpPage from "./pages/UserSingUpPage"
 import HomePage from "./pages/HomePage";
 import Nav from "./components/Nav";
 import MoreButton from "./components/MoreButton";
+import LoginPage from "./pages/LoginPage";
+
 const App = (props) => {
   return (
     <div>
       <Router>
-<UserSignUpPage></UserSignUpPage>
+<Nav></Nav>
       
       </Router>
     </div>

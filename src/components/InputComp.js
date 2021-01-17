@@ -13,7 +13,7 @@ let className="form-control"
     return (
  
       <div className="form-group ">
-           <MDBInput className={className} style={style} name={name}label={label} type={type} onChange={onChange} outline  size={size} value={defaultValue} >
+           <MDBInput className={className} style={style} name={name}label={label} type={type} onChange={onChange} outline  size={size} defaultValue={defaultValue} >
             <div className="invalid-feedback"><span>{props.error}</span></div></MDBInput>
             </div>
    

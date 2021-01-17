@@ -13,7 +13,8 @@ const ButtonWithProg = (props) => {
     icon,
     fab,
     spinsize,
-    size
+    size,
+    color
     
   } = props;
   const [white, SetWhite] = useState("false");
@@ -25,23 +26,15 @@ const ButtonWithProg = (props) => {
       disabled={disabled}
       style={style}
     >
-      {white ? (
+     
         <MDBIcon
           fab={fab}
           icon={icon}
-          style={{ color: "#03a9f4" }}
+          style={{color:"#03a9f4"}}
           size={size}
           spin={spinsize}
         ></MDBIcon>
-      ) : (
-        <MDBIcon
-          fab={fab}
-          icon={icon}
-          style={{ color: "#03a9f4" }}
-          size={size}
-          spin={spinsize}
-        ></MDBIcon>
-      )}
+   
       <span
         className="pl-3"
         style={{

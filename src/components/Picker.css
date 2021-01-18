@@ -1,0 +1,19 @@
+#s:hover{
+    background-color: #bee6ff;
+    border-radius: 30px;
+    border-width: 30px;
+    inline-size: 42px;
+    
+    
+
+}
+
+#d:hover{
+    background-color: #bee6ff;
+    border-top-width: -30px;
+    border-radius:32px 32px;
+    border-width: 30px;
+   inline-size: 200px;
+    
+    
+}

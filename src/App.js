@@ -11,7 +11,7 @@ import HomePage from "./pages/HomePage";
 import Nav from "./components/Nav";
 import MoreButton from "./components/MoreButton";
 import LoginPage from "./pages/LoginPage";
-
+import Picker from  "./components/Picker"
 const App = (props) => {
   return (
     <div>

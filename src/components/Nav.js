@@ -25,14 +25,28 @@ const Nav = (props) => {
     color:"#000",
     fontSize:"40px"
   }
+  const textinline={
+        color:"#1da1f2",
+        fontSize:25 ,
+        fontFamily:"arial"
+  }
+  const textoutline={
+    color:"#000",
+    fontSize:25,
+    fontFamily:"arial"
+}
   const [form, SetForm] = useState({
     home: false,
     explore: false,
     notifications: false,
     message: false,
   });
-  const [hovered, setHovered] = useState(false);
-  const [hover1,SetHover1]=useState(false)
+const [form2,setForm2]=useState({
+  home:false,
+  explore:false,
+  notifications:false,
+  message:false
+})
   return (
     <div className="col ml-5">
       <ul className="nav flex-column ml-5">
@@ -44,26 +58,29 @@ const Nav = (props) => {
              
             </Link>
                </li>
-        <li className="nav-item pt-3" id="d" onMouseEnter={() => SetForm({home:true,message:false})}>
+               <div className="d-flex bd-highlight">
+
+        <li className="nav-item" id="d" onMouseEnter={() => setForm2({home:true,message:false})}>
          
-            <Link onClick={() => SetForm({ home: true, message: false })}>
-              {form.home ? (
-                <HomeIcon
-                  style={hovered?hoverless:neverless}
-                ></HomeIcon> 
-              ) : (
+            <Link  onClick={() => SetForm({ home: true, message: false })}>
+              {form.home ? (<>
+                <HomeIcon 
+                  style={hoverless}
+                ></HomeIcon> <span  style={textinline}>Home</span></>
+              ) : (<>
                 <HomeOutlinedIcon
-                  style={form.home?hoverless:neverless}
-                ></HomeOutlinedIcon>
+                  style={form2.home?hoverless:neverless}
+                ></HomeOutlinedIcon><span    style={form2.home?textinline:textoutline}>Home</span> </>
               )}
-        
+            
               
              
             </Link>
 
          
         </li>
-        <li className="nav-item  " onMouseEnter={() => setHovered(true)}>
+        </div>
+        <li className="nav-item  " onMouseEnter={() =>setForm2({message:true,home:false})}>
           <MDBView hover>
             <Link onClick={() => SetForm({ home: false, message: true })}>
               {form.message ? (
@@ -76,23 +93,23 @@ const Nav = (props) => {
                 ></EmailOutlinedIcon>
               )}
 
-              {hovered && form.message ? (
+               
                 <MDBMask overlay="blue-slight">
                   <EmailIcon
                     style={{ color: "#1da1f2", fontSize: "40px" }}
                   ></EmailIcon>
                 </MDBMask>
-              ) : (
+        
                 <MDBMask overlay="blue-slight">
                   <EmailOutlinedIcon
                     style={{ color: "#1da1f2", fontSize: "40px" }}
                   ></EmailOutlinedIcon>
                 </MDBMask>
-              )}
+              
             </Link>
           </MDBView>
         </li>
-        <li className="nav-item pt-2" onMouseEnter={()=>setHovered(true)}>
+        <li className="nav-item pt-2">
           <MDBView hover>
             {" "}
             <Link
@@ -113,9 +130,9 @@ const Nav = (props) => {
                   icon="hashtag"
                 ></MDBIcon>
               )}
-           {hovered && <MDBMask overlay="blue-slight">
+            <MDBMask overlay="blue-slight">
              <MDBIcon  icon="hashtag" style={{color:"#1da1f2",fontSize:"40px"}}></MDBIcon>
-                </MDBMask>}
+                </MDBMask>
              
             </Link>
           </MDBView>

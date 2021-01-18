@@ -1,20 +1,24 @@
 #s:hover{
-    background-color: #bee6ff;
-    border-radius: 30px;
-    border-width: 30px;
-    inline-size: 42px;
-    
-    
+    background-color: rgb(216, 240, 248);
+     border-radius: 32px;
+     padding: 10px;
+  
 
 }
 
-#d:hover{
-    background-color: #bee6ff;
-    
-    border-radius: 30px;
-    border-width: 30px;
-    inline-size: auto;
-    border-top: 3rem;
-    
-    
+
+#t:hover{
+    background-color: #d6e4ed;
+    border-radius: 32px;
+    border-width: 32px;
+    inline-size: 42px;
+ 
+}   
+
+strong{
+ text-align: middle;
+ text-emphasis: inherit;
+}
+#as{
+    padding: 10px;
 }

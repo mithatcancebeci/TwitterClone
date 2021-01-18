@@ -1,152 +1,422 @@
 import React, { useCallback, useState } from "react";
-import ButtonWithProg from "./ButtonWithProg";
+import ListOutlinedIcon from '@material-ui/icons/ListOutlined';
+import SubjectIcon from '@material-ui/icons/Subject';
 import TwitterIcon from "@material-ui/icons/Twitter";
-import { blue } from "@material-ui/core/colors";
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import HomeIcon from "@material-ui/icons/Home";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import { Link } from "react-router-dom";
 import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import EmailIcon from "@material-ui/icons/Email";
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import {
   Explore,
   ExploreOutlined,
-  HomeOutlined,
-  TramOutlined,
+  NotificationsOutlined,
 } from "@material-ui/icons";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
-import { MDBIcon, Lightbox, MDBView, MDBMask } from "mdbreact";
-const Nav = (props) => { 
-  const hoverless={
- color:"#1da1f2",
-  fontSize:"40px"
-  }
-  const neverless={
-    color:"#000",
-    fontSize:"40px"
-  }
-  const textinline={
-        color:"#1da1f2",
-        fontSize:25 ,
-        fontFamily:"arial"
-  }
-  const textoutline={
-    color:"#000",
-    fontSize:25,
-    fontFamily:"arial"
-}
+import { MDBIcon } from "mdbreact";
+const Nav = (props) => {
+  const hoverless = {
+    color: "#1da1f2",
+    fontSize: "40px",
+  };
+  const neverless = {
+    color: "#000",
+    fontSize: "40px",
+  };
+  const textinline = {
+    color: "#1da1f2",
+    fontSize: 19,
+    fontFamily: "inherit",
+  };
+  const textoutline = {
+    color: "#000",
+    fontSize: 19,
+    fontFamily: "inherit",
+  };
   const [form, SetForm] = useState({
     home: false,
     explore: false,
     notifications: false,
     message: false,
+    bookmarks:false,
+    list:false,
+    profile:false,
+    more:false,
   });
-const [form2,setForm2]=useState({
-  home:false,
-  explore:false,
-  notifications:false,
-  message:false
-})
+  const [form2, setForm2] = useState({
+    home: false,
+    explore: false,
+    notifications: false,
+    message: false,
+    bookmarks:false,
+    list:false,
+    profile:false,
+    more:false
+  });
   return (
-    <div className="col ml-5">
-      <ul className="nav flex-column ml-5">
-        <li className="nav-item " id="s">
-          
-            <Link>
-              <TwitterIcon style={hoverless}></TwitterIcon>
-
-             
-            </Link>
-               </li>
-               <div className="d-flex bd-highlight">
-
-        <li className="nav-item" id="d" onMouseEnter={() => setForm2({home:true,message:false})}>
-         
-            <Link  onClick={() => SetForm({ home: true, message: false })}>
-              {form.home ? (<>
-                <HomeIcon 
-                  style={hoverless}
-                ></HomeIcon> <span  style={textinline}>Home</span></>
-              ) : (<>
-                <HomeOutlinedIcon
-                  style={form2.home?hoverless:neverless}
-                ></HomeOutlinedIcon><span    style={form2.home?textinline:textoutline}>Home</span> </>
-              )}
-            
-              
-             
-            </Link>
-
-         
+    <div className="container ">
+      <ul className="nav flex-column ml-3">
+        <li className="nav-item ">
+          <Link>
+            <TwitterIcon id="t" style={hoverless}></TwitterIcon>
+          </Link>
         </li>
-        </div>
-        <li className="nav-item  " onMouseEnter={() =>setForm2({message:true,home:false})}>
-          <MDBView hover>
-            <Link onClick={() => SetForm({ home: false, message: true })}>
-              {form.message ? (
-                <EmailIcon
-                  style={{ color: "#1da1f2", fontSize: "40px" }}
-                ></EmailIcon>
-              ) : (
-                <EmailOutlinedIcon
-                  style={{ color: "#000", fontSize: "40px" }}
-                ></EmailOutlinedIcon>
-              )}
 
-               
-                <MDBMask overlay="blue-slight">
-                  <EmailIcon
-                    style={{ color: "#1da1f2", fontSize: "40px" }}
-                  ></EmailIcon>
-                </MDBMask>
-        
-                <MDBMask overlay="blue-slight">
-                  <EmailOutlinedIcon
-                    style={{ color: "#1da1f2", fontSize: "40px" }}
-                  ></EmailOutlinedIcon>
-                </MDBMask>
-              
-            </Link>
-          </MDBView>
-        </li>
-        <li className="nav-item pt-2">
-          <MDBView hover>
-            {" "}
-            <Link
-              onClick={() =>
-                SetForm({ home: false, message: false, explore: true })
-              }
-            >
-              {form.explore ? (
-                <MDBIcon
-              
-                  style={{ color: "#1da1f2", fontSize: "40px" }}
-                  icon="hashtag"
-                ></MDBIcon>
-              ) : (
-                <MDBIcon
-                  
-                  style={{ color: "#000", fontSize: "40px" }}
-                  icon="hashtag"
-                ></MDBIcon>
-              )}
-            <MDBMask overlay="blue-slight">
-             <MDBIcon  icon="hashtag" style={{color:"#1da1f2",fontSize:"40px"}}></MDBIcon>
-                </MDBMask>
-             
-            </Link>
-          </MDBView>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link disabled"
-            href="#"
-            tabindex="-1"
-            aria-disabled="true"
+        <li
+          className="nav-item pt-4"
+          onMouseEnter={() =>
+            setForm2({ home: true, message: false, explore: false ,notifications:false,bookmarks:false,list:false,profile:false,more:false})
+          }
+        >
+          <Link
+            id="s"
+            onClick={() =>
+              SetForm({ home: true, message: false, explore: false ,notifications:false,bookmarks:false,list:false,profile:false,more:false})
+            }
           >
-            Disabled
-          </a>
+            {form.home ? (
+              <>
+                <HomeIcon style={hoverless}></HomeIcon>{" "}
+                <strong className="pl-3" style={textinline}>
+                  Home
+                </strong>
+              </>
+            ) : (
+              <>
+                <HomeOutlinedIcon
+                  style={form2.home ? hoverless : neverless}
+                ></HomeOutlinedIcon>
+                <strong
+                  className="pl-3 "
+                  style={form2.home ? textinline : textoutline}
+                >
+                  Home
+                </strong>{" "}
+              </>
+            )}
+          </Link>
         </li>
+
+        <li
+          className="nav-item pt-4"
+          onMouseEnter={() =>
+            setForm2({
+              home: false,
+              message: false,
+              explore: true,
+              notifications: false,
+              bookmarks:false,
+              list:false,
+              profile:false,
+              more:false
+            })
+          }
+        >
+          <Link
+            id="s"
+            onClick={() =>
+              SetForm({
+                home: false,
+                message: false,
+                explore: true,
+                notifications: false,
+                bookmarks:false,
+                profile:false,
+                list:false,
+                more:false
+              })
+            }
+          >
+            {form.explore ? (
+              <>
+                <Explore style={hoverless} icon="hashtag"></Explore>
+                <strong className="pl-3" style={textinline}>
+                  Explore
+                </strong>
+              </>
+            ) : (
+              <>
+                <ExploreOutlined
+                  style={form2.explore ? hoverless : neverless}
+                  icon="hashtag"
+                ></ExploreOutlined>
+                <strong
+                  className="pl-3 "
+                  style={form2.explore ? textinline : textoutline}
+                >
+                  {" "}
+                  Explore
+                </strong>
+              </>
+            )}
+          </Link>
+        </li>
+        <li
+          className="nav-item pt-3"
+          onMouseEnter={() =>
+            setForm2({
+              message: false,
+              home: false,
+              explore: false,
+              notifications: true,
+              bookmarks:false,
+              profile:false,
+              list:false,
+              more:false
+            })
+          }
+        >
+          <Link
+            id="s"
+            onClick={() =>
+              SetForm({
+                home: false,
+                message: false,
+                explore: false,
+                notifications: true,
+                bookmarks:false,
+                list:false,
+                profile:false,
+                more:false
+              })
+            }
+          >
+            {form.notifications ? (
+              <>
+                <NotificationsActiveIcon
+                  style={hoverless}
+                ></NotificationsActiveIcon>
+                <strong className="pl-3" style={textinline}>
+                  Notifications
+                </strong>
+              </>
+            ) : (
+              <>
+                <NotificationsNoneOutlinedIcon
+                  style={form2.notifications ? hoverless : neverless}
+                ></NotificationsNoneOutlinedIcon>{" "}
+                <strong
+                  className="pl-3"
+                  style={form2.notifications ? textinline : textoutline}
+                >
+                  Notifications
+                </strong>
+              </>
+            )}
+          </Link>
+        </li>
+        <li
+          className="nav-item pt-4"
+          onMouseEnter={() =>
+            setForm2({
+              message: true,
+              home: false,
+              explore: false,
+              notifications: false,
+              bookmarks:false,
+              list:false,
+              profile:false,
+              more:false,
+            })
+          }
+        >
+          <Link
+            id="s"
+            onClick={() =>
+              SetForm({
+                home: false,
+                message: true,
+                explore: false,
+                notifications: false,
+                bookmarks:false,
+                profile:false,
+                list:false,
+                more:false
+              })
+            }
+          >
+            {form.message ? (
+              <>
+                <EmailIcon style={hoverless}></EmailIcon>
+                <strong className="pl-3 " style={textinline}>
+                  Message
+                </strong>
+              </>
+            ) : (
+              <>
+                <EmailOutlinedIcon
+                  style={form2.message ? hoverless : neverless}
+                ></EmailOutlinedIcon>
+                <strong
+                  className="pl-3 "
+                  style={form2.message ? textinline : textoutline}
+                >
+                  Message
+                </strong>
+              </>
+            )}
+          </Link>
+        </li>
+        <li
+          className="nav-item pt-4"
+          onMouseEnter={() =>
+            setForm2({
+              message: false,
+              home: false,
+              explore: false,
+              notifications: false,
+              bookmarks:true,
+              profile:false,
+              list:false,
+              more:false
+            })
+          }
+        >
+          <Link
+            id="s"
+            onClick={() =>
+              SetForm({
+                home: false,
+                message: false,
+                explore: false,
+                notifications: false,
+                bookmarks:true,
+                profile:false,
+                list:false,
+                more:false
+              })
+            }
+          >
+            {form.bookmarks ? (
+              <>
+                <BookmarkIcon style={hoverless}></BookmarkIcon>
+                <strong className="pl-3 " style={textinline}>
+                  Bookmarks
+                </strong>
+              </>
+            ) : (
+              <>
+                <BookmarkBorderIcon
+                  style={form2.bookmarks? hoverless : neverless}
+                ></BookmarkBorderIcon>
+                <strong
+                  className="pl-3 "
+                  style={form2.bookmarks ? textinline : textoutline}
+                >
+                  Bookmarks
+                </strong>
+              </>
+            )}
+          </Link>
+        </li>
+        <li
+          className="nav-item pt-4"
+          onMouseEnter={() =>
+            setForm2({
+              message: false,
+              home: false,
+              explore: false,
+              notifications: false,
+              bookmarks:false,
+              profile:false,
+              list:true,
+              more:false
+            })
+          }
+        >
+          <Link
+            id="s"
+            onClick={() =>
+              SetForm({
+                home: false,
+                message: false,
+                explore: false,
+                notifications: false,
+                bookmarks:false,
+                profile:false,
+                list:true,
+                more:false
+              })
+            }
+          >
+            {form.list ? (
+              <>
+                <SubjectIcon style={hoverless}></SubjectIcon>
+                <strong className="pl-3 " style={textinline}>
+                  List
+                </strong>
+              </>
+            ) : (
+              <>
+                <ListOutlinedIcon
+                  style={form2.list? hoverless : neverless}
+                ></ListOutlinedIcon>
+                <strong
+                  className="pl-3 "
+                  style={form2.list ? textinline : textoutline}
+                >
+List                </strong>
+              </>
+            )}
+          </Link>
+        </li>
+        <li
+          className="nav-item pt-4"
+          onMouseEnter={() =>
+            setForm2({
+              message: false,
+              home: false,
+              explore: false,
+              notifications: false,
+              bookmarks:false,
+              profile:true,
+              list:false,
+              more:false
+            })
+          }
+        >
+          <Link
+            id="s"
+            onClick={() =>
+              SetForm({
+                home: false,
+                message: false,
+                explore: false,
+                notifications: false,
+                bookmarks:false,
+                profile:true,
+                list:false,
+                more:false
+              })
+            }
+          >
+            {form.profile ? (
+              <>
+                <AccountCircleIcon style={hoverless}></AccountCircleIcon>
+                <strong className="pl-3 " style={textinline}>
+                  Profile
+                </strong>
+              </>
+            ) : (
+              <>
+                <AccountCircleOutlinedIcon
+                  style={form2.profile? hoverless : neverless}
+                ></AccountCircleOutlinedIcon>
+                <strong
+                  className="pl-3 "
+                  style={form2.profile ? textinline : textoutline}
+                >
+Profile                </strong>
+              </>
+            )}
+          </Link>
+        </li>
+        <div></div>
       </ul>
     </div>
   );

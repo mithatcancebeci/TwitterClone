@@ -1,8 +1,0 @@
-.Link {
-    flex:1 5 6;
-    box-shadow:inset -1px 0 6;
-}
-    .Link:hover {
-      background : turquoise;
-      box-shadow:inset -1px 5 0 darken(lightgray,10);
-    }

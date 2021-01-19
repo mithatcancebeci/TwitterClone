@@ -19,6 +19,8 @@ import {
 } from "@material-ui/icons";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import UserPage from "../pages/UserPage";
+import { useDispatch, useSelector } from "react-redux";
+import MoreButton from "./MoreButton";
 
 const Nav = (props) => {
   const hoverless = {
@@ -59,8 +61,20 @@ const Nav = (props) => {
     profile:false,
     more:false
   });
+  const  {username}=useSelector((store)=>({
+    isLoggedIn:store.isLoggedIn,
+    username:store.username
+  }));
+
+  const dispatch=useDispatch();
+  const onLogoutSuccess=()=>{
+    dispatch(onLogoutSuccess)
+  }
+
+
   return (
-    <div className="container ">
+    <div className="col ml-5 pl-5">
+      <div className="row">
       <ul className="nav flex-column ml-3">
         <li className="nav-item ">
           <Link to="">
@@ -418,9 +432,36 @@ Profile                </strong>
             )}
           </Link>
         </li>
-        <div></div>
+        <li 
+       
+          className="nav-item pt-4"
+          
+          onMouseEnter={() =>
+            setForm2({
+              message: false,
+              home: false,
+              explore: false,
+              notifications: false,
+              bookmarks:false,
+              profile:false,
+              list:false,
+              more:true
+            })
+          }
+        >
+        <a id="d">
+       <MoreButton 
+       control="8"  
+       dropNav="dropup" 
+       far1 icon1="comment" text1="Topics" text="More" style={form2.more?textinline:textoutline}
+       far2 icon2="bolt" text2="Moments" 
+              ></MoreButton></a>
+     </li>
+ <li>     <button></button>     </li>
+ <li></li>
       </ul>
-    </div>
+
+    </div></div>
   );
 };
 

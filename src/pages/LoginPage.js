@@ -1,35 +1,43 @@
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { login } from "../api/apiCall";
 import twitter from "../assets/twitter.png";
 import ButtonWithProg from "../components/ButtonWithProg";
 import InputComp from "../components/InputComp";
+import { loginHandler } from "../redux/authAction";
+import { useApiProgress } from "../Shared/ApiProgress";
 const LoginPage = (props) => {
   const[username,setUsername]=useState();
   const[password,SetPassword]=useState();
   const[error,SetError]=useState(undefined);
-  
-  
+  const pendingApiCall=useApiProgress('post','/api/1.0/auth',true)
+  const dispatch=useDispatch();
  
   useEffect(()=>{
 
     SetError(undefined)
   },[username,password])
 
-  const onClickLogin= async (event)=>{
+  const  onClickLogin = async (event) => {
     event.preventDefault();
-  const cred={username,password}
-  try {
-    const response= await login(cred);
-    props.history.push("/")
-  } catch (apiError) {
-   SetError( apiError.response.data.message)
-  }
-
-   
-   
-  }
+  
+    const creds = {
+      username,
+      password,
+    };
+    const{history}=props
+    const { push } = history;
+    SetError(undefined);
+    try {
+    await dispatch(loginHandler(creds))
+      push("/");
+    } catch (apiError) {
+      SetError(apiError.response.data.message)
+      
+      };
+    }
  
   const btnEnabled=username&&password;
   return (
@@ -53,12 +61,9 @@ const LoginPage = (props) => {
     
     </div>
     <div className="col pt-3">
-      <ButtonWithProg  text="Login"  className="btn btn-outline rounded-pill shadow-lg"
-              icon="signature"
-              size="1x"
-              color="#03a9f4"
-              style={{ width: "145px", height: "45px"}}
-              onClick={onClickLogin} disabled={!btnEnabled}></ButtonWithProg>
+      <ButtonWithProg  
+              text="Login" pendingApiCall={pendingApiCall}  className="btn-md  rounded-pill outlined shadow-none  "
+              onClick={onClickLogin} disabled={pendingApiCall||!btnEnabled}></ButtonWithProg>
  
     </div>
   </div>

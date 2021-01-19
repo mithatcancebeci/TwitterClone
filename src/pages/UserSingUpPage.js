@@ -5,6 +5,7 @@ import InputComp from "../components/InputComp";
 import {  MDBIcon } from 'mdbreact';
 import ButtonWithProg from "../components/ButtonWithProg";
 import { signup,  } from "../api/apiCall";
+import { useApiProgress } from "../Shared/ApiProgress";
 const UserSingUpPage = (props) => {
   const [form, SetForm] = useState({
     username: null,
@@ -22,7 +23,7 @@ const UserSingUpPage = (props) => {
     formCopy[name] = value;
     SetForm((previousForm) => ({ ...previousForm, [name]: value }));
   };
-  const [pendingApiCall, SetpendingApiCall] = useState(false);
+  const pendingApiCall=useApiProgress('post','/api/1.0/addUser',true);
   const onClickSignUp = async (event) => {
     event.preventDefault();
 
@@ -32,7 +33,7 @@ const UserSingUpPage = (props) => {
       email,
       password,
     };
-    SetpendingApiCall(true);
+   
 
     try {
       const response = await signup(body);
@@ -41,7 +42,7 @@ const UserSingUpPage = (props) => {
       if (e.response.data.validationErrors)
         SetErrors(e.response.data.validationErrors);
     }
-    SetpendingApiCall(false);
+  
   };
   const {
     username: usernameError,
@@ -111,11 +112,9 @@ const UserSingUpPage = (props) => {
           <div className="p-5">
             {" "}
             <ButtonWithProg
-              disabled={pendingApiCall}
+              disabled={(pendingApiCall,passwordRepeatError!== undefined )}
               className="btn  rounded-pill pl-3 "
-              icon="signature"
-              size="1x"
-              style={{ width: "150px", height: "60px" }}
+             pendingApiCall={pendingApiCall}
               text="SignUp"
               onClick={onClickSignUp}
             ></ButtonWithProg>

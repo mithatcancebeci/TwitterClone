@@ -1,18 +1,20 @@
 import React from 'react';
-import Nav from '../components/Nav';
+import AuthenticationContext from '../Shared/AuthenticationContext';
 
-const HomePage = () => {
+const HomePage = (props) => {
+  const {onLogoutSuccess}=props;
     return ( 
  <div className="container ">
   <div className="row align-items-start">
     <div className="col ">
- <Nav></Nav>
+ 
     </div>
     <div className="col ">
   <h1>Home</h1>
     </div>
     <div className="col ">
     <h1>Explore</h1>
+    <button onClick={onLogoutSuccess}>ss</button>
     </div>
   </div>
   </div>

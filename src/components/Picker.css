@@ -19,6 +19,13 @@ strong{
  text-align: middle;
  text-emphasis: inherit;
 }
-#as{
-    padding: 10px;
+#d:hover{
+    background-color: rgb(216, 240, 248);
+     border-radius: 32px;
+     padding: 10px;
+     inline-size: 130px;
+ 
+     text-align: middle;
+     text-emphasis: inherit
+
 }

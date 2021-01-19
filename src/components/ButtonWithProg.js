@@ -1,10 +1,12 @@
 import React from 'react';
 import HomeIcon from "@material-ui/icons/Home";
 const ButtonWithProg = (props) => {
-  const {className}=props;
+  const {className,onClick,pendingApiCall,text,disabled ,style}=props;
   return (
     <div>
-      <HomeIcon></HomeIcon><button className="btn btn-primary" style={{padding:2,margin:1,marginBottom:25,marginLeft:-4}}></button>
+<button onClick={onClick} className={className} disabled={disabled}  style={{color:"#000"}}>
+{pendingApiCall&&<span className=" spinner-border spinner-border-sm "></span>}{text}
+</button>
           </div>
   );
 };

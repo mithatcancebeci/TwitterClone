@@ -7,17 +7,19 @@ import {
 } from "react-router-dom";
 
 import UserSignUpPage from "./pages/UserSingUpPage"
-import HomePage from "./pages/HomePage";
-import Nav from "./components/Nav";
-import MoreButton from "./components/MoreButton";
+import HomePage from './pages/HomePage'
 import LoginPage from "./pages/LoginPage";
-import Picker from  "./components/Picker"
+import UserPage from  "./pages/UserPage"
 const App = (props) => {
   return (
     <div>
       <Router>
-<Nav></Nav>
-      
+        <Switch> 
+<Route exact path="/" component={HomePage}></Route>
+<Route path="/login" component={LoginPage}></Route>
+<Route path="/signup"  component={UserSignUpPage}></Route>
+<Route path="/user/:username" component={UserPage}></Route>
+<Redirect to="/"></Redirect> </Switch>
       </Router>
     </div>
   );

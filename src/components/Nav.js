@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React,{useState } from "react";
 import ListOutlinedIcon from '@material-ui/icons/ListOutlined';
 import SubjectIcon from '@material-ui/icons/Subject';
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -15,10 +15,11 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import {
   Explore,
   ExploreOutlined,
-  NotificationsOutlined,
+
 } from "@material-ui/icons";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
-import { MDBIcon } from "mdbreact";
+import UserPage from "../pages/UserPage";
+
 const Nav = (props) => {
   const hoverless = {
     color: "#1da1f2",
@@ -62,7 +63,7 @@ const Nav = (props) => {
     <div className="container ">
       <ul className="nav flex-column ml-3">
         <li className="nav-item ">
-          <Link>
+          <Link to="">
             <TwitterIcon id="t" style={hoverless}></TwitterIcon>
           </Link>
         </li>
@@ -74,6 +75,7 @@ const Nav = (props) => {
           }
         >
           <Link
+          to="/login"
             id="s"
             onClick={() =>
               SetForm({ home: true, message: false, explore: false ,notifications:false,bookmarks:false,list:false,profile:false,more:false})

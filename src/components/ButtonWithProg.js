@@ -1,53 +1,11 @@
-import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import { MDBIcon } from "mdbreact";
-
+import React from 'react';
+import HomeIcon from "@material-ui/icons/Home";
 const ButtonWithProg = (props) => {
-  const {
-    pendingApiCall,
-    disabled,
-    onClick,
-    text,
-    className,
-    style,
-    icon,
-    fab,
-    spinsize,
-    size,
-    color
-    
-  } = props;
-  const [white, SetWhite] = useState("false");
+  const {className}=props;
   return (
-    <button
-    
-      className={className}
-      onClick={onClick}
-      disabled={disabled}
-      style={style}
-    >
-     
-        <MDBIcon
-          fab={fab}
-          icon={icon}
-          style={{color:"#03a9f4"}}
-          size={size}
-          spin={spinsize}
-        ></MDBIcon>
-   
-      <span
-        className="pl-3"
-        style={{
-          fontSize: 15,
-          textTransform: "initial",
-          color: "#000",
-          fontWeight: "bolder",
-          fontFamily: "Arial",
-        }}
-      >
-        {text}
-      </span>
-    </button>
+    <div>
+      <HomeIcon></HomeIcon><button className="btn btn-primary" style={{padding:2,margin:1,marginBottom:25,marginLeft:-4}}></button>
+          </div>
   );
 };
 

@@ -3,6 +3,7 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { MDBIcon } from "mdbreact";
 import { Link } from "@material-ui/core";
 
+
 const MoreButton = (props) => {
   const [toggle, SetToggle] = useState(false);
   const menuClass = `dropdown-menu${toggle ? " show" : ""}`;
@@ -34,7 +35,7 @@ const MoreButton = (props) => {
     text8,
     text,
     dropNav,
-    style
+    style,styleButton,id
   } = props;
   const OnClickToggle = () => {
     SetToggle(true);
@@ -44,35 +45,37 @@ const MoreButton = (props) => {
   };
 
   return (
-    <div>
-      <div
+    
+      <div 
         className={dropNav}
         onDoubleClick={onClickOffToggle}
         onClick={OnClickToggle}
-        
+
       >
-        <MoreHorizIcon
-          type="button"
+          <div id={id}>
+        <MoreHorizIcon 
+          type="button" 
           id="dropdownMenuButton"
           data-toggle="dropdown"
           className="outline"
           aria-haspopup="true"
-          style={{fontSize:"40px"}}
+          style={styleButton}
+
         ></MoreHorizIcon><strong className="pl-3" style={style}>{text}</strong>
+</div>
 
-
-        <div className={menuClass}  style={{borderRadius:"5px"}}aria-labelledby="dropdownMenuButton">
+        <div className={menuClass}  id="a" style={{borderRadius:"5px"}}aria-labelledby="dropdownMenuButton">
           {control === "4" && (
             <>
-              <a className="dropdown-item" href={href1}>
+              <Link className="dropdown-item" to={href1}>
                 <MDBIcon  far={far1} size="1x" icon={icon1}></MDBIcon> <span >{text1}</span>
-              </a>
-              <a className="dropdown-item" href={href2}>
+              </Link>
+              <Link className="dropdown-item" to={href2}>
                 <MDBIcon far={far2} size="1x" icon={icon2}></MDBIcon> <span>{text2}</span>
-              </a>
-              <a className="dropdown-item" href={href3}>
+              </Link>
+              <Link className="dropdown-item" to={href3}>
                 <MDBIcon far={far3} size="1x" icon={icon3}></MDBIcon> <span>{text3}</span>
-              </a>
+              </Link>
               <a className="dropdown-item" href={href4}>
                 <MDBIcon  far={far4} size="1x" icon={icon4}></MDBIcon> <span>{text4}</span>
               </a>
@@ -80,29 +83,30 @@ const MoreButton = (props) => {
           )}
           {control === "8" && (
             <>
-              <a className="dropdown-item" href={href1}>
-                <MDBIcon far={far1} size="1x" icon={icon1}></MDBIcon> <span className="pl-2" style={{fontSize:"14px"}}>{text1}</span>
-              </a>
+              <Link className="dropdown-item" to={href1}>
+                <MDBIcon far={far1} size="1x" icon={icon1}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text1}</span>
+              </Link>
               <a className="dropdown-item" href={href2}>
-                <MDBIcon far={far2} size="1x" icon={icon2}></MDBIcon> <span className="pl-2" style={{fontSize:"14px"}}>{text2}</span>
+                <MDBIcon far={far2} size="1x" icon={icon2}></MDBIcon> <span className="overflow-auto ml-3" style={{fontSize:"14px"}}>{text2}</span>
               </a>
               <a className="dropdown-item" href={href3}>
-                <MDBIcon far={far3} size="1x" icon={icon3}></MDBIcon> <span className="pl-2" style={{fontSize:"14px"}}>{text3}</span>
+                <MDBIcon far={far3} size="1x" icon={icon3}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text3}</span>
               </a>
               <a className="dropdown-item" href={href4}>
-                <MDBIcon far={far4}size="1x" icon={icon4}></MDBIcon> <span className="pl-2" style={{fontSize:"14px"}}>{text4}</span>
+                <MDBIcon far={far4}size="1x" icon={icon4}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text4}</span>
               </a>
+              <hr className="dropdown-divider overflow-auto"></hr>
               <a className="dropdown-item" href={href5}>
-                <MDBIcon far={far5} size="1x" icon={icon5}></MDBIcon> <span className="pl-2" style={{fontSize:"14px"}}>{text5}</span>
+                <MDBIcon far={far5} size="1x" icon={icon5}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text5}</span>
               </a>
               <a className="dropdown-item" href={href6}>
-                <MDBIcon  far={far6}size="1x" icon={icon6}></MDBIcon> <span className="pl-2" style={{fontSize:"14px"}}>{text6}</span>
+                <MDBIcon  far={far6}size="1x" icon={icon6}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text6}</span>
               </a>
               <a className="dropdown-item" href={href7}>
-                <MDBIcon far={far7} size="1x" icon={icon7}></MDBIcon> <span className="pl-2" style={{fontSize:"14px"}}>{text7}</span>
+                <MDBIcon far={far7} size="1x" icon={icon7}></MDBIcon> <span className="overflow-auto ml-1" style={{fontSize:"14px"}}>{text7}</span>
               </a>
               <a className="dropdown-item" href={href8}>
-                <MDBIcon far={far8}size="1x" icon={icon8}></MDBIcon> <span className="pl-2" style={{fontSize:"14px"}}>{text8}</span>
+                <MDBIcon far={far8}size="1x" icon={icon8}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text8}</span>
               </a>
             </>
           )}
@@ -120,6 +124,7 @@ const MoreButton = (props) => {
               <a className="dropdown-item" href={href4}>
                 <MDBIcon far={far4}size="1x" icon={icon4}></MDBIcon> <span>{text4}</span>
               </a>
+              <hr className="dropdown-divider"></hr>
               <a className="dropdown-item" href={href5}>
                 <MDBIcon far={far5}size="1x" icon={icon5}></MDBIcon> <span>{text5}</span>
               </a>
@@ -143,7 +148,7 @@ const MoreButton = (props) => {
           )}
         </div>
       </div>
-    </div>
+  
   );
 };
 

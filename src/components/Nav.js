@@ -18,6 +18,7 @@ import UserPage from "../pages/UserPage";
 import { useDispatch, useSelector } from "react-redux";
 import MoreButton from "./MoreButton";
 import ButtonWithProg from "./ButtonWithProg";
+import Popover from './Popover'
 
 const Nav = (props) => {
   const hoverless = {
@@ -505,8 +506,12 @@ const Nav = (props) => {
                 width: "200px",
               }}
             ></ButtonWithProg>
-          </div>
-          <li></li>
+             </div>
+          
+       <li style={{paddingTop:"180px"} }>
+         <Popover id="d"></Popover>
+       </li>
+          
         </ul>
       </div>
     </div>

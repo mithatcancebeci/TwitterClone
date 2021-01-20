@@ -4,6 +4,7 @@ import {
   HashRouter as Router,
   Redirect,
   Switch,
+  HashRouter,
 } from "react-router-dom";
 
 import UserSignUpPage from "./pages/UserSingUpPage"
@@ -13,8 +14,9 @@ import UserPage from  "./pages/UserPage"
 import { useSelector } from "react-redux";
 import Nav from "./components/Nav";
 import MoreButton from "./components/MoreButton";
-import Picker from "./components/Picker";
-import Popover from './components/Popover'
+
+import Popover from "./components/Popover";
+
 
 const App = (props) => {
   const {isLoggedIn}=useSelector((store)=>{
@@ -24,9 +26,17 @@ const App = (props) => {
     }
   })
   return (
-   <Router>
-<Popover></Popover>
-    </Router>
+    <div>
+  <Router>
+    {isLoggedIn &&<Nav></Nav>}
+<Switch>
+    <Route exact path="/" component={HomePage}></Route>
+    {!isLoggedIn && <Route path="/login" component={LoginPage}></Route>}
+    <Route path="/signup" component={UserSignUpPage}></Route>
+    <Route path="/user/:username" component={UserPage}></Route>
+    <Redirect to="/"></Redirect>
+</Switch>
+  </Router></div>
   );
 };
 

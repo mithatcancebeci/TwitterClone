@@ -463,16 +463,17 @@ const Nav = (props) => {
               })
             }
           >
-           <strong>
+            <strong>
               <MoreButton
-                control="8"id="d"
+                control="8"
+                id="d"
                 dropNav="dropup"
                 far1
                 icon1="comment"
                 text1="Topics"
                 text="More"
                 style={form2.more ? textinline : textoutline}
-                styleButton={form2.more?hoverless:neverless}
+                styleButton={form2.more ? hoverless : neverless}
                 icon2="bolt"
                 text2="Moments"
                 icon3="external-link-alt"
@@ -490,9 +491,21 @@ const Nav = (props) => {
                 icon8="walking"
                 text8="Keyboard shortcuts"
               ></MoreButton>
-         </strong>
+            </strong>
           </li>
-          <div><ButtonWithProg className="btn btn rounded-pill" text="TWEET" style={{backgroundColor:"#1da1f2",color:"white",fontSize:"15px",fontFamily:"inherit",width:"200px"}}></ButtonWithProg></div>   
+          <div >
+            <ButtonWithProg
+              className="btn btn rounded-pill text-capitalize shadow-none"
+              text="Tweet"
+              style={{
+                backgroundColor: "#1da1f2",
+                color: "white",
+                fontSize: "17px",
+                fontFamily: "inherit",
+                width: "200px",
+              }}
+            ></ButtonWithProg>
+          </div>
           <li></li>
         </ul>
       </div>

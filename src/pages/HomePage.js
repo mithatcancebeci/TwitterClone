@@ -6,7 +6,7 @@ import twitter from '../assets/twitter.png'
 const HomePage = (props) => {
   const {onLogoutSuccess}=props;
     return ( 
-      <div className="card ">
+      <div className="card shadow-sm" >
         <div className="card-header" style={{backgroundColor:"white"}}>
           <strong style={{fontFamily:"inherit",fontSize:"20px"}}>Home</strong>
          <MDBIcon   style={{paddingLeft:"239px"}} icon="star"></MDBIcon>

@@ -28,16 +28,28 @@ const App = (props) => {
       <Router>
         <div class="container">
           <div class="row align-items-start">
-            <div className="col">{isLoggedIn && <Nav></Nav>}</div>
-            <div className="col">     <Switch>
-          <Route exact path="/" component={HomePage}></Route> </Switch></div>
-          <div className="col">{isLoggedIn&&<SearchOnTwitter></SearchOnTwitter>}      </div>   
-       
-    {!isLoggedIn&& <Route path="/login" component={LoginPage}></Route>}
-      
-       
-       </div>
-       </div>
+            {isLoggedIn && (
+              <>
+             
+                <div className="col">
+               
+                  <Nav></Nav>
+                </div>
+                <div className="col">
+               
+                  <Switch>
+                    <Route exact path="/" component={HomePage}></Route>
+                  </Switch>
+                </div>
+                <div className="col">
+                  <SearchOnTwitter></SearchOnTwitter>
+                </div>
+              </>
+            )}
+
+            {!isLoggedIn && <Route path="/login" component={LoginPage}></Route>}
+          </div>
+        </div>
       </Router>
     </div>
   );

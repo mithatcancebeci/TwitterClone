@@ -12,7 +12,7 @@ const Picker = (props) => {
       const onClickOffToggle = () => {
         SetToggle(false);
       };
-      const {id,logOutClick}=props
+      const {id,logOutClick,username}=props
     return (
         <div 
         className="dropup"
@@ -34,7 +34,7 @@ const Picker = (props) => {
             <div>
                  <strong className="pl-3" style={{fontSize:"17px"}}>Mithatcan Cebeci</strong> <MDBIcon className="pl-3"   icon="ellipsis-h"></MDBIcon>
                  <br></br>
-           <span className="pr-3" style={{fontSize:"16px",color:"GrayText",fontFamily:"sans-serif"}}>@CebeciMithatcan</span></div>
+           <span className="pr-3" style={{fontSize:"16px",color:"GrayText",fontFamily:"sans-serif"}}>{username}</span></div>
         </button> 
 
     </div> 
@@ -48,10 +48,10 @@ const Picker = (props) => {
               src={volone1}
               alt=""
             ></img>
-              <div>
+              <div className="text-captalize">
                  <strong className="pl-3" style={{fontSize:"17px"}}>Mithatcan Cebeci</strong><MDBIcon className="pl-3" style={{color:"#1da1f2"}}  icon="check"></MDBIcon>
          <br></br>
-           <span className="pl-3" style={{fontSize:"16px",color:"GrayText",fontFamily:"sans-serif"}}>@CebeciMithatcan</span> </div>  </div>
+           <span className="pl-3" style={{fontSize:"16px",color:"GrayText",fontFamily:"sans-serif"}}>{username}</span> </div>  </div>
         </li> 
           <hr></hr>
           <li>
@@ -59,7 +59,7 @@ const Picker = (props) => {
           </li>
           <hr></hr>
           <li>
-          <span className="pl-3" style={{fontSize:"15px",cursor:"pointer"}} onClick={logOutClick}> Log out @CebeciMithatcan</span>
+          <span className="pl-3 text-capitalize" style={{fontSize:"15px",cursor:"pointer"}} onClick={logOutClick}> Log out {username}</span>
           </li>
  </div>
  </div>

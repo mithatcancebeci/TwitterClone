@@ -66,8 +66,13 @@ const Nav = (props) => {
   }));
 
   const dispatch = useDispatch();
+
   const onLogoutSuccess = () => {
-    dispatch(logoutSuccess);
+    
+  
+
+  dispatch(logoutSuccess);
+    
   };
 
   return (
@@ -512,7 +517,7 @@ const Nav = (props) => {
              </div>
           
        <li style={{paddingTop:"180px"} }>
-         <Popover id="d" logOutClick={onLogoutSuccess}></Popover>
+         <Popover id="d" username={username} logOutClick={onLogoutSuccess}></Popover>
        </li>
           
         </ul>

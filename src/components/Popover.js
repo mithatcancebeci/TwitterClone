@@ -12,17 +12,17 @@ const Picker = (props) => {
       const onClickOffToggle = () => {
         SetToggle(false);
       };
-      const {id}=props
+      const {id,logOutClick}=props
     return (
         <div 
         className="dropup"
-        onDoubleClick={onClickOffToggle}
-        onClick={OnClickToggle}
+       
 
       >
           <div id={id}> 
            <button className="btn pl-3 d-flex align-items-start text-capitalize shadow-none "id="dropdownMenuButton"
-          data-toggle="dropdown"   aria-haspopup="true">
+          data-toggle="dropdown"  onDoubleClick={onClickOffToggle}
+        onClick={OnClickToggle}  aria-haspopup="true">
             <img
               className="image-fit rounded-circle"
               width="48px"
@@ -59,7 +59,7 @@ const Picker = (props) => {
           </li>
           <hr></hr>
           <li>
-          <span className="pl-3" style={{fontSize:"15px"}}> Log out @CebeciMithatcan</span>
+          <span className="pl-3" style={{fontSize:"15px",cursor:"pointer"}} onClick={logOutClick}> Log out @CebeciMithatcan</span>
           </li>
  </div>
  </div>

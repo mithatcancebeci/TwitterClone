@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MoreButton from "./MoreButton";
 import ButtonWithProg from "./ButtonWithProg";
 import Popover from './Popover'
+import { logoutSuccess } from "../redux/authAction";
 
 const Nav = (props) => {
   const hoverless = {
@@ -66,12 +67,14 @@ const Nav = (props) => {
 
   const dispatch = useDispatch();
   const onLogoutSuccess = () => {
-    dispatch(onLogoutSuccess);
+    dispatch(logoutSuccess);
   };
 
   return (
-    <div className="container-sm">
-      <div className="row">
+    <div class="container">
+  <div class="row align-items-start">
+    
+  <div className="col">
         <ul className="nav flex-column">
           <li className="nav-item ">
             <Link to="">
@@ -509,11 +512,12 @@ const Nav = (props) => {
              </div>
           
        <li style={{paddingTop:"180px"} }>
-         <Popover id="d"></Popover>
+         <Popover id="d" logOutClick={onLogoutSuccess}></Popover>
        </li>
           
         </ul>
       </div>
+    </div>
     </div>
   );
 };

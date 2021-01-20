@@ -14,6 +14,8 @@ import { useSelector } from "react-redux";
 import Nav from "./components/Nav";
 import MoreButton from "./components/MoreButton";
 import Picker from "./components/Picker";
+import Popover from './components/Popover'
+
 const App = (props) => {
   const {isLoggedIn}=useSelector((store)=>{
     return{
@@ -23,7 +25,7 @@ const App = (props) => {
   })
   return (
    <Router>
-<Nav></Nav>
+<Popover></Popover>
     </Router>
   );
 };

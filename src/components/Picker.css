@@ -21,6 +21,12 @@ strong{
 #d:hover{
     background-color: rgb(216, 240, 248);
     border-radius: 32px;
-    padding-left: 4px;
+    padding-left: 3px;
+    inline-size: 100px;
     
+}
+#e:hover{
+    background-color: rgb(216, 240, 248);
+    border-radius: 32px;
+    inline-size: 295px;
 }

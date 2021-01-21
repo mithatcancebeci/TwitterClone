@@ -76,13 +76,11 @@ const Nav = (props) => {
   };
 
   return (
-    <div class="container">
-  <div class="row align-items-start">
     
-  <div className="col">
+  
         <ul className="nav flex-column">
           <li className="nav-item ">
-            <Link to="">
+            <Link to="/">
               <TwitterIcon id="t" style={hoverless}></TwitterIcon>
             </Link>
           </li>
@@ -103,7 +101,7 @@ const Nav = (props) => {
             }
           >
             <Link
-              to="/login"
+              to="/"
               id="s"
               onClick={() =>
                 SetForm({
@@ -422,6 +420,7 @@ const Nav = (props) => {
           >
             <Link
               id="s"
+              to="/user/:username"
               onClick={() =>
                 SetForm({
                   home: false,
@@ -477,31 +476,29 @@ const Nav = (props) => {
                 control="8"
                 id="d"
                 dropNav="dropup"
-                far1
-                icon1="comment"
+                className1="far fa-comment "
                 text1="Topics"
                 text="More"
                 style={form2.more ? textinline : textoutline}
                 styleButton={form2.more ? hoverless : neverless}
-                icon2="bolt"
+                className2="fa fa-bolt"
                 text2="Moments"
-                icon3="external-link-alt"
+                className3="fas fa-external-link-alt"
                 text3="Twitter Ads"
-                far4
-                icon4="chart-bar"
+                className4="far fa-chart-bar"
                 text4="Analytics"
-                icon5="tools"
+               className5="fas fa-tools"
                 text5="Settings And privacy"
-                far6
-                icon6="question-circle"
+               className6="far fa-question-circle"
                 text6="Helps"
-                icon7="edit"
+               className7="far fa-edit"
                 text7="Display"
-                icon8="walking"
+                className8="fas fa-walking"
                 text8="Keyboard shortcuts"
               ></MoreButton>
             </strong>
           </li>
+          <li>
           <div >
             <ButtonWithProg
               className="btn btn rounded-pill text-capitalize shadow-none"
@@ -515,15 +512,15 @@ const Nav = (props) => {
               }}
             ></ButtonWithProg>
              </div>
-          
-       <li style={{paddingTop:"180px"} }>
-         <Popover id="d" username={username} logOutClick={onLogoutSuccess}></Popover>
-       </li>
+          </li>
+       
+         <div style={{paddingTop:"160px"} }>
+         <Popover id="e" username={username} logOutClick={onLogoutSuccess}></Popover></div>
+     
           
         </ul>
-      </div>
-    </div>
-    </div>
+     
+    
   );
 };
 

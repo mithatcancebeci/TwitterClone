@@ -8,7 +8,7 @@ const MoreButton = (props) => {
   const [toggle, SetToggle] = useState(false);
   const menuClass = `dropdown-menu${toggle ? " show" : ""}`;
   const {
-    control,far1,far2,far3,far4,far5,far6,far7,far8,
+    control,
     href1,
     href2,
     href3,
@@ -17,14 +17,9 @@ const MoreButton = (props) => {
     href6,
     href7,
     href8,
-    icon1,
-    icon2,
-    icon3,
-    icon4,
-    icon5,
-    icon6,
-    icon7,
-    icon8,
+    className1,
+    className2,
+    className3,className4,className5,className6,className7,className8,
     text1,
     text2,
     text3,
@@ -68,82 +63,83 @@ const MoreButton = (props) => {
           {control === "4" && (
             <>
               <Link className="dropdown-item" to={href1}>
-                <MDBIcon  far={far1} size="1x" icon={icon1}></MDBIcon> <span >{text1}</span>
+                <i className={className1}></i> <span >{text1}</span>
               </Link>
               <Link className="dropdown-item" to={href2}>
-                <MDBIcon far={far2} size="1x" icon={icon2}></MDBIcon> <span>{text2}</span>
+                <i className={className2}></i> <span>{text2}</span>
               </Link>
               <Link className="dropdown-item" to={href3}>
-                <MDBIcon far={far3} size="1x" icon={icon3}></MDBIcon> <span>{text3}</span>
+                <i className={className3}></i> <span>{text3}</span>
               </Link>
-              <a className="dropdown-item" href={href4}>
-                <MDBIcon  far={far4} size="1x" icon={icon4}></MDBIcon> <span>{text4}</span>
-              </a>
+              <Link className="dropdown-item" to={href4}>
+                <i   className={className4}></i> <span>{text4}</span>
+              </Link>
             </>
           )}
           {control === "8" && (
             <>
               <Link className="dropdown-item" to={href1}>
-                <MDBIcon far={far1} size="1x" icon={icon1}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text1}</span>
+                <i  className={className1}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text1}</span>
               </Link>
-              <a className="dropdown-item" href={href2}>
-                <MDBIcon far={far2} size="1x" icon={icon2}></MDBIcon> <span className="overflow-auto ml-3" style={{fontSize:"14px"}}>{text2}</span>
-              </a>
-              <a className="dropdown-item" href={href3}>
-                <MDBIcon far={far3} size="1x" icon={icon3}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text3}</span>
-              </a>
-              <a className="dropdown-item" href={href4}>
-                <MDBIcon far={far4}size="1x" icon={icon4}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text4}</span>
-              </a>
+              <Link className="dropdown-item" to={href2}>
+                <i  className={className2}></i> <span className="overflow-auto ml-3" style={{fontSize:"14px"}}>{text2}</span>
+              </Link>
+              <Link className="dropdown-item" to={href3}>
+                <i className={className3}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text3}</span>
+              </Link>
+              <Link className="dropdown-item" to={href4}>
+                <i  className={className4}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text4}</span>
+              </Link>
               <hr className="dropdown-divider overflow-auto"></hr>
-              <a className="dropdown-item" href={href5}>
-                <MDBIcon far={far5} size="1x" icon={icon5}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text5}</span>
-              </a>
-              <a className="dropdown-item" href={href6}>
-                <MDBIcon  far={far6}size="1x" icon={icon6}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text6}</span>
-              </a>
-              <a className="dropdown-item" href={href7}>
-                <MDBIcon far={far7} size="1x" icon={icon7}></MDBIcon> <span className="overflow-auto ml-1" style={{fontSize:"14px"}}>{text7}</span>
-              </a>
-              <a className="dropdown-item" href={href8}>
-                <MDBIcon far={far8}size="1x" icon={icon8}></MDBIcon> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text8}</span>
-              </a>
+              <Link className="dropdown-item" to={href5}>
+                <i  className={className5}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text5}</span>
+              </Link>
+              <Link className="dropdown-item" to={href6}>
+                <i   className={className6}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text6}</span>
+              </Link>
+              <Link className="dropdown-item" to={href7}>
+                <i  className={className7}></i> <span className="overflow-auto ml-1" style={{fontSize:"14px"}}>{text7}</span>
+              </Link>
+              <Link className="dropdown-item" to={href8}>
+                <i className={className8}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text8}</span>
+              </Link>
             </>
           )}
           {control === "7" && (
-            <>
-              <a className="dropdown-item" href={href1}>
-                <MDBIcon far={far1}size="1x" icon={icon1}></MDBIcon> <span>{text1}</span>
-              </a>
-              <a className="dropdown-item" href={href2}>
-                <MDBIcon far={far2}size="1x" icon={icon2}></MDBIcon> <span>{text2}</span>
-              </a>
-              <a className="dropdown-item" href={href3}>
-                <MDBIcon far={far3}size="1x" icon={icon3}></MDBIcon> <span>{text3}</span>
-              </a>
-              <a className="dropdown-item" href={href4}>
-                <MDBIcon far={far4}size="1x" icon={icon4}></MDBIcon> <span>{text4}</span>
-              </a>
-              <hr className="dropdown-divider"></hr>
-              <a className="dropdown-item" href={href5}>
-                <MDBIcon far={far5}size="1x" icon={icon5}></MDBIcon> <span>{text5}</span>
-              </a>
-              <a className="dropdown-item" href={href6}>
-                <MDBIcon far={far6} size="1x" icon={icon6}></MDBIcon> <span>{text6}</span>
-              </a>
-              <a className="dropdown-item" href={href7}>
-                <MDBIcon far={far7}size="1x" icon={icon7}></MDBIcon> <span>{text7}</span>
-              </a>
-            </>
+             <>
+             <Link className="dropdown-item" to={href1}>
+               <i  className={className1}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text1}</span>
+             </Link>
+             <Link className="dropdown-item" to={href2}>
+               <i  className={className2}></i> <span className="overflow-auto ml-3" style={{fontSize:"14px"}}>{text2}</span>
+             </Link>
+             <Link className="dropdown-item" to={href3}>
+               <i className={className3}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text3}</span>
+             </Link>
+             <Link className="dropdown-item" to={href4}>
+               <i  className={className4}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text4}</span>
+             </Link>
+             <hr className="dropdown-divider overflow-auto"></hr>
+             <Link className="dropdown-item" to={href5}>
+               <i  className={className5}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text5}</span>
+             </Link>
+             <Link className="dropdown-item" to={href6}>
+               <i   className={className6}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text6}</span>
+             </Link>
+             <Link className="dropdown-item" to={href7}>
+               <i  className={className7}></i> <span className="overflow-auto ml-1" style={{fontSize:"14px"}}>{text7}</span>
+             </Link>
+            
+           </>
           )}
           {control === "2" && (
             <>
-              <a className="dropdown-item" href={href1}>
-                <MDBIcon far={far1}size="1x" icon={icon1}></MDBIcon> <span>{text1}</span>
-              </a>
-              <a className="dropdown-item" href={href2}>
-                <MDBIcon far={far2}size="1x" icon={icon2}></MDBIcon> <span>{text2}</span>
-              </a>
+               <Link className="dropdown-item" to={href1}>
+               <i  className={className1}></i> <span className="overflow-auto ml-2" style={{fontSize:"14px"}}>{text1}</span>
+             </Link>
+             <Link className="dropdown-item" to={href2}>
+               <i  className={className2}></i> <span className="overflow-auto ml-3" style={{fontSize:"14px"}}>{text2}</span>
+             </Link>
             </>
           )}
         </div>

@@ -10,7 +10,7 @@ const UserSingUpPage = (props) => {
   const [form, SetForm] = useState({
     username: null,
     password: null,
-    email: null,
+    displayName: null,
     passwordRepeat: null,
   });
   const [errors, SetErrors] = useState({});
@@ -27,10 +27,10 @@ const UserSingUpPage = (props) => {
   const onClickSignUp = async (event) => {
     event.preventDefault();
 
-    const { username, password, email } = form;
+    const { username, password, displayName } = form;
     const body = {
       username,
-      email,
+      displayName,
       password,
     };
    
@@ -47,7 +47,7 @@ const UserSingUpPage = (props) => {
   const {
     username: usernameError,
     password: passwordError,
-    email: emailError,
+    displayName: displayNameError,
   } = errors;
   let passwordRepeatError;
   if (form.password !== form.passwordRepeat) {
@@ -61,13 +61,13 @@ const UserSingUpPage = (props) => {
         style={{ borderRadius: "20px", width: "600px", height: "597px" }}
       >
         <div className="card-text">
-          <MDBIcon
-            fab
-            className="pt-3"
-            icon="twitter"
-            style={{ color: "#1da1f2" }}
-            size="lg"
-          ></MDBIcon>
+          <i
+            
+            className="fab fa-twitter"
+            
+            style={{ color: "#1da1f2" ,fontSize:"30px"}}
+           
+          ></i>
         </div>
         <div className="card-body">
           <b
@@ -85,11 +85,11 @@ const UserSingUpPage = (props) => {
             error={usernameError}
           ></InputComp>
           <InputComp
-            name="email"
-            label="Email"
-            type="email"
+            name="displayName"
+            label="Display Name"
+            type="text"
             onChange={onChangeEvent}
-            error={emailError}
+            error={displayNameError}
           ></InputComp>
           <InputComp
             name="password"

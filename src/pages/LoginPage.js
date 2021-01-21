@@ -50,8 +50,8 @@ const LoginPage = (props) => {
     <div className="col">
     <InputComp
             
-            label="Email"
-            type="email"
+            label="username"
+            type="text"
             onChange={event=>setUsername(event.target.value)}
            error={error}
           ></InputComp>

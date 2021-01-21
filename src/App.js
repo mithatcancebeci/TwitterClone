@@ -48,6 +48,7 @@ const App = (props) => {
             )}
 
             {!isLoggedIn && <Route path="/login" component={LoginPage}></Route>}
+            <Route path="/signup" component={UserSignUpPage}> </Route>
           </div>
         </div>
       </Router>

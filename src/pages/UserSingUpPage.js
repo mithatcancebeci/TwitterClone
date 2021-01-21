@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import twitter from "../assets/twitter.png";
-import Modal from "../components/Modal";
+
+
 import InputComp from "../components/InputComp";
-import {  MDBIcon } from 'mdbreact';
+
 import ButtonWithProg from "../components/ButtonWithProg";
 import { signup,  } from "../api/apiCall";
 import { useApiProgress } from "../Shared/ApiProgress";

@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search';
 import Card from './Card'
+import WhoToFollow from './WhoToFollow';
 const SearchOnTwitter = () => {
     return (
         <div className="text-center">
@@ -9,7 +10,7 @@ const SearchOnTwitter = () => {
 
         <li className="nav-item"><Search placeholder="Search Twitter" icon="search"></Search></li>
         <li> 
-            <Card></Card>
+            <WhoToFollow></WhoToFollow>
         </li>
             </ul>
             

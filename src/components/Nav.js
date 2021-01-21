@@ -14,7 +14,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import { Explore, ExploreOutlined } from "@material-ui/icons";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
-import UserPage from "../pages/UserPage";
+
 import { useDispatch, useSelector } from "react-redux";
 import MoreButton from "./MoreButton";
 import ButtonWithProg from "./ButtonWithProg";

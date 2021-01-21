@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import { MDBIcon } from "mdbreact";
-import { Link } from "@material-ui/core";
+import {Link} from 'react-router-dom'
 
 
 const MoreButton = (props) => {
@@ -30,7 +29,7 @@ const MoreButton = (props) => {
     text8,
     text,
     dropNav,
-    style,styleButton,id
+    styleCo,styleButton,id
   } = props;
   const OnClickToggle = () => {
     SetToggle(true);
@@ -56,7 +55,7 @@ const MoreButton = (props) => {
           aria-haspopup="true"
           style={styleButton}
 
-        ></MoreHorizIcon><strong className="pl-3" style={style}>{text}</strong>
+        ></MoreHorizIcon><strong className="pl-3" style={styleCo}>{text}</strong>
 </div>
 
         <div className={menuClass}  id="a" style={{borderRadius:"5px"}}aria-labelledby="dropdownMenuButton">

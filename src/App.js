@@ -9,12 +9,9 @@ import {
 import UserSignUpPage from "./pages/UserSingUpPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import UserPage from "./pages/UserPage";
 import { useSelector } from "react-redux";
 import Nav from "./components/Nav";
-import MoreButton from "./components/MoreButton";
 
-import Popover from "./components/Popover";
 import SearchOnTwitter from "./components/SearchOnTwitter";
 
 const App = (props) => {
@@ -26,8 +23,8 @@ const App = (props) => {
   return (
     <div>
       <Router>
-        <div class="container">
-          <div class="row align-items-start">
+        <div className="container">
+          <div className="row align-items-start">
             {isLoggedIn && (
               <>
              

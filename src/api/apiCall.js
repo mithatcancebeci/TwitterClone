@@ -16,3 +16,9 @@ export const setAuthorizationHeaders = ({ username, password, isLoggedIn }) => {
           delete axios.defaults.headers["Authorization"];
         }
       };
+export const getUsers=(page=0,size=3)=>{
+  return axios.get(`/api/1.0/getUsers?currentPage=${page}&pageSize=${size}`);
+}
+export const getUser=(username)=>{
+  return axios.get(`/api/1.0/getUsers/${username}`)
+}

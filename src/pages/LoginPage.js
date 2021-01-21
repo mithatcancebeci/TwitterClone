@@ -1,8 +1,7 @@
 
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../api/apiCall";
+
 import twitter from "../assets/twitter.png";
 import ButtonWithProg from "../components/ButtonWithProg";
 import InputComp from "../components/InputComp";

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import volone1 from '../assets/volone1.jpg.jpg'
 import './Picker.css'
 const Picker = (props) => {
+  
     const [toggle, SetToggle] = useState(false);
     const menuClass = `dropdown-menu${toggle ? " show" : ""} `;
     const OnClickToggle = () => {
@@ -12,7 +13,7 @@ const Picker = (props) => {
       const onClickOffToggle = () => {
         SetToggle(false);
       };
-      const {id,logOutClick,username}=props
+      const {id,logOutClick,username,displayName}=props
     return (
         <div 
         className="dropup"
@@ -32,7 +33,7 @@ const Picker = (props) => {
             ></img>
          
             <div>
-                 <strong className="pl-3" style={{fontSize:"17px"}}>Mithatcan Cebeci</strong> <MDBIcon className="pl-3"   icon="ellipsis-h"></MDBIcon>
+                 <strong className="pl-3" style={{fontSize:"17px"}}>{displayName}</strong> <MDBIcon className="pl-3"   icon="ellipsis-h"></MDBIcon>
                  <br></br>
            <span className="pr-3" style={{fontSize:"16px",color:"GrayText",fontFamily:"sans-serif"}}>{username}</span></div>
         </button> 
@@ -49,7 +50,7 @@ const Picker = (props) => {
               alt=""
             ></img>
               <div className="text-captalize">
-                 <strong className="pl-3" style={{fontSize:"17px"}}>Mithatcan Cebeci</strong><MDBIcon className="pl-3" style={{color:"#1da1f2"}}  icon="check"></MDBIcon>
+                 <strong className="pl-3" style={{fontSize:"17px"}}>{displayName}</strong><MDBIcon className="pl-3" style={{color:"#1da1f2"}}  icon="check"></MDBIcon>
          <br></br>
            <span className="pl-3" style={{fontSize:"16px",color:"GrayText",fontFamily:"sans-serif"}}>{username}</span> </div>  </div>
         </li> 

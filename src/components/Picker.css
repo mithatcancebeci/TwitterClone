@@ -7,9 +7,9 @@
 }
 
 #t:hover{
-    background-color: #d6e4ed;
-    border-radius: 32px;
-    border-width: 32px;
+    background-color: #d8f0f8;
+    border-radius: 36px;
+   
     inline-size: 42px;
  
 }   
@@ -27,11 +27,12 @@ strong{
 }
 #e:hover{
     background-color: rgb(216, 240, 248);
-   
+    border-radius: 32px;
     inline-size: 295px;
 }
 #f:hover{
-    background-color: rgb(225, 227, 228); 
+    background-color: rgb(216, 240, 248); 
     border-radius: 16px;
     padding-left : 3px
 }
+

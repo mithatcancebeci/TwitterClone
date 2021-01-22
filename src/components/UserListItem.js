@@ -8,7 +8,8 @@ const UserListItem = (props) => {
   const{username,displayName,image}=user;
  
   return (
-    <Link to={`/user/${username}`} className="list-group-item list-group-item-action">
+    
+    <Link to={`/user/${username}`} className="list-group-item list-group-item-action" style={{backgroundColor:"#ebeef0",borderBlockColor:"#ebeef0"}}>
           
         <DefaultProfileImage
         
@@ -20,13 +21,13 @@ const UserListItem = (props) => {
         ></DefaultProfileImage>
      
     
-       <span className="d-flex-auto pl-3"style={{font:"inherit",fontWeight:"bolder"}}> {displayName}</span>
-       
-       <span className="">{username}</span>
-     
+       <span className="d-flex-auto pl-3"style={{font:"inherit",fontWeight:"bolder"}}> <span>{displayName}</span></span>
+       <br></br>
+     <span style={{paddingLeft:"55px"}}>{username}</span>
      
      
     </Link>
+    
   );
     }
   export default UserListItem;

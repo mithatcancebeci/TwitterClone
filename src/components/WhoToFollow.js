@@ -24,13 +24,14 @@ SetLoadFailure(true);
    loadUsers()
     },[])
     return (
-        <div className="card">
-            <h3 className="card-header text-left" >Who to follow</h3>
-            <div className="list-group-fish text-left">
+        <div className="card shadow-none">
+            <h3 className="card-header text-left " style={{borderTopLeftRadius:15,borderTopRightRadius:15,backgroundColor:"#ebeef0",font:"inherit",fontWeight:"bolder",fontSize:"17px"}}>Who to follow</h3>
+            <div className="list-group-fish text-left " >
                 {users.map((user)=>(
-<UserListItem key={user.username} user={user}></UserListItem>
+<UserListItem key={user.username} user={user} ></UserListItem>
                 ))}
             </div>
+        {loadFailure&&<span className="badge-danger">Failed data</span>}
         </div>
    );
 };

@@ -60,9 +60,10 @@ const Nav = (props) => {
     profile: false,
     more: false,
   });
-  const { username } = useSelector((store) => ({
+  const { username ,displayName} = useSelector((store) => ({
     isLoggedIn: store.isLoggedIn,
     username: store.username,
+    displayName:store.displayName
   }));
 
   const dispatch = useDispatch();
@@ -515,7 +516,7 @@ const Nav = (props) => {
           </li>
        
          <div style={{paddingTop:"160px"} }>
-         <Popover id="e" username={username} logOutClick={onLogoutSuccess}></Popover></div>
+         <Popover id="e" username={username} displayName={displayName} logOutClick={onLogoutSuccess}></Popover></div>
      
           
         </ul>

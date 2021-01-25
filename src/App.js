@@ -10,27 +10,28 @@ import UserSignUpPage from "./pages/UserSingUpPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import { useSelector } from "react-redux";
-import Nav from "./components/Nav";
+import './App.css'
 
 import SearchOnTwitter from "./components/SearchOnTwitter";
+import Nav from "./components/Nav/Nav";
 
-const App = (props) => {
+function App(){
   const { isLoggedIn } = useSelector((store) => {
     return {
       isLoggedIn: store.isLoggedIn,
     };
   });
   return (
-    <div>
+    <div className="app">
       <Router> <Switch>
-        <div className="container">
+        
           <div className="row align-items-start">
             {isLoggedIn && (
               <>
              
                 <div className="col">
+               <Nav/>
                
-                  <Nav></Nav>
                 </div>
                 <div className="col">
                
@@ -47,7 +48,7 @@ const App = (props) => {
             {!isLoggedIn && <><Route path="/login" component={LoginPage}></Route></>}
            <Route path="/signup" component={UserSignUpPage}> </Route>
           </div>
-        </div> </Switch>
+         </Switch>
       </Router>
     </div>
   );

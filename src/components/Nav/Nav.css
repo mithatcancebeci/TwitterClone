@@ -37,19 +37,61 @@ text-decoration: none;
    color:white;
 }
 
+
+.profilePopover{
+margin-top: 150px;
+
+}
+
+
 .profilePopover>div>button{
+
+display: flex;
+align-items: center;
+padding: 15px;
+border-radius: 99999px;
 border:none;
-box-sizing: border-box;
-display: inline-flex;
-
-margin-top:130px;
-border-radius: 42px;
-padding: 19px;
-font-size: 16px;
+background-color:#fff;
 
 }
-
 .profilePopover>div>button>img{
-  margin-right: 15px;
+margin-right: 10px;
+}
+.profilePopover>div>button:hover{
+  background-color: #e8f5fe;  
+}
+
+
+
+
+
+.profilePopover>div>#a{
+  padding-top:9px;
+  padding-bottom: 9px;
+
+  font-size: 14px;
+  border-radius: 47px;
+align-items: center;
+  
+  flex-grow: 1;
 
 }
+.profilePopover>div>#a>div>p{
+ padding-left: 25px;
+ padding-right: 25px;
+}
+
+.profilePopover>div>#a>li>div{
+ padding:10px;
+ display: flex;
+align-items: center;
+ }
+ 
+.profilePopover>div>#a>li>div>span{
+  padding-left: 10px;
+  padding-right: 10px;
+ 
+ 
+  }
+ 
+  

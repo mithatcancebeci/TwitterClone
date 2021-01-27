@@ -21,7 +21,7 @@ import HelpCenter from "../MoreButtonIcons/HelpCenter";
 import DisplayIcon from "../MoreButtonIcons/DisplayIcon";
 import Keyboard from "../MoreButtonIcons/Keyboard";
 import ProfilePopover from "../ProfilePopover";
-
+import CheckIcon from "../MoreButtonIcons/CheckIcon";
 
 
 const Nav = () => {
@@ -155,7 +155,7 @@ const Nav = () => {
         icon8={<Keyboard/>}
       ></MoreButton>
       <ButtonWithProg className="tweetButton" text="Tweet"/>
-      <ProfilePopover className="profilePopover"  username="@CebeciMithatcan" displayName="MithatcanCebeci" icon={<MoreIcon active={false}/>}/>
+      <ProfilePopover className="profilePopover"  username="@CebeciMithatcan" displayName="MithatcanCebeci" icon={<MoreIcon active={false}/>} icon1={<CheckIcon></CheckIcon>}/>
     </div>
   );
 };

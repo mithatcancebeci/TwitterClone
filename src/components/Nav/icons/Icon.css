@@ -1,24 +1,29 @@
 .icon {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  .icon:hover {
-    background-color: #e8f5fe;
-    border-radius: 30px;
-    color: var(--twitter-color);
-    transition: color 100ms ease-out;
-  svg path{
-    fill: #1da1f2;
-  }
-  }
+  position: relative;
+  display: flex;
+  padding: 8px;
+  margin-top: 10px;
+  width: auto;
+  height: auto;
+}
 
-
+.icon:hover,
+.icon:hover > svg path {
+  background-color: #e8f5fe;
+  border-radius: 32px;
+  color: var(--twitter-color);
+  fill: var(--twitter-color);
+}
 
 .icon > h2 {
-    font-size: 26px;
-    font-weight: bolder;
-    padding-left: 20px;
-    
-  }
-  
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.active > h2 {
+  font-size: 18px;
+  font-weight: bolder;
+  padding-left: 20px;
+  color: var(--twitter-color);
+}

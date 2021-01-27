@@ -1,0 +1,23 @@
+.moreicon {
+  display: inline-block;
+  flex-direction: row;
+padding:7px
+
+
+  }
+.moreicon>span{
+font:inherit;
+font-size:14px;
+vertical-align: text-bottom;
+ 
+}
+.moreicon >svg{
+    
+    display: inline-block;
+    margin-right: 9px;
+    height: 1.25em;
+   
+
+    
+   
+}

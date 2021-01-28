@@ -1,0 +1,12 @@
+.heap>div{
+    display: flex;
+    align-items: center;
+    width: 500px;
+    border-right: 1px solid var(--twitter-background);
+    border-bottom: 1px solid var(--twitter-background);
+}
+.heap>div>h5{
+padding: 7px;
+font-weight: bold;
+    flex-grow: 1;
+}

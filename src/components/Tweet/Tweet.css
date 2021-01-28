@@ -1,0 +1,50 @@
+.tweetSubmit {
+    padding-bottom: 10px;
+    border-bottom: 5px solid var(--twitter-background);
+    padding-right: 10px;
+  }
+  
+  .tweetSubmit > form {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .tweetSubmitArea {
+    padding: 20px;
+    
+    display: flex;
+  }
+  
+  .tweetSubmitArea > input {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 20px;
+    border: none;
+    
+  }
+    
+.ttButton>button{
+    background-color: var(--twitter-color) ;
+    border: none ;
+    color: white ;
+    font-weight: 900 ;
+
+    border-radius: 30px;
+    width: 80px;
+    height: 40px ;
+    margin-top: 20px ;
+    
+    
+    
+}
+.tweetButtons{
+    text-align: right;}
+
+.card-body{
+  display:inline-flex;  
+  text-align: top;
+}
+.card-body>.head{
+padding:5px; flex-grow: inherit;
+}

@@ -11,8 +11,9 @@
   }
   
   .tweetSubmitArea {
-    padding: 20px;
-    
+    padding-top: 20px;
+    padding-left:20px;
+    padding-right: 20px ;
     display: flex;
   }
   
@@ -21,30 +22,55 @@
     margin-left: 20px;
     font-size: 20px;
     border: none;
+    font-family: sans-serif;
     
   }
-    
+
+   .share{
+    display: flex;
+     flex-direction: row;
+     padding-left: 65px;
+
+} 
 .ttButton>button{
     background-color: var(--twitter-color) ;
     border: none ;
     color: white ;
-    font-weight: 900 ;
-
+    font-weight: 400 ;
     border-radius: 30px;
     width: 80px;
     height: 40px ;
-    margin-top: 20px ;
-    
+   
     
     
 }
-.tweetButtons{
-    text-align: right;}
 
-.card-body{
-  display:inline-flex;  
-  text-align: top;
+.ttButton{
+text-align: right;
+padding: 10px;flex-grow: 1;
 }
-.card-body>.head{
-padding:5px; flex-grow: inherit;
+
+textarea{
+  min-width: 550px;
+  max-height: 50px;
+  border:none;
+  outline:none;
+  padding-left: 10px;
+  resize:none
 }
+
+.card{
+  padding: 6px;
+  font-size:15px;}
+
+  .beat{
+display: flex;
+    flex-direction: row;
+    
+    
+  }
+  .beat>div{
+    padding-right: 100px;
+  }
+
+ 

@@ -1,9 +1,11 @@
-import { MDBInput } from "mdbreact";
+
 import React from 'react';
+import './Input.css'
+
 
 
 const InputComp = (props) => {
-    const{name,type,onChange,error,label,size,style,defaultValue}=props
+    const{name,type,active,onChange,error,label,size,style,defaultValue,id,icon}=props
  
 let className="form-control"
     if(error!==undefined){
@@ -13,8 +15,9 @@ let className="form-control"
     return (
  
       <div className="form-group ">
-           <MDBInput className={className} style={style} name={name}label={label} type={type} onChange={onChange} outline  size={size} defaultValue={defaultValue} >
-            <div className="invalid-feedback"><span>{props.error}</span></div></MDBInput>
+         {active&& <label for={id} style={{cursor:"pointer"}}>{icon}</label>}
+                <input className={className} style={style} name={name}label={label} type={type} onChange={onChange} outline id={id} size={size} defaultValue={defaultValue}/>
+            <div className="invalid-feedback"><span>{props.error}</span></div>
             </div>
    
     );

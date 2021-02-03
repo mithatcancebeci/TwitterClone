@@ -1,0 +1,23 @@
+div>.modal-dialog{
+   width: 100%!important;
+    height:100%!important;
+    
+}
+
+
+
+div>.modal-content{
+    width: 620px;
+    height: auto; 
+    border-radius:20px;
+}
+div>.modal-header{
+    width: auto;
+    height: auto; 
+    
+}
+div>.modal-body{
+    width: 100%;
+    height:100%; 
+    
+}

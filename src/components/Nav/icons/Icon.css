@@ -3,8 +3,8 @@
   display: flex;
   padding: 8px;
   margin-top: 10px;
-  width: auto;
-  height: auto;
+width: auto;
+height: auto;
 }
 
 .icon:hover,
@@ -19,6 +19,7 @@
   font-size: 18px;
   font-weight: bold;
   padding-left: 20px;
+  
 }
 
 .active > h2 {

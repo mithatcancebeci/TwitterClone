@@ -1,18 +1,16 @@
 import React from 'react';
-import Card from '../components/Card'
+import Header from '../components/Header'
 import Stars from '../components/Nav/icons/Stars';
 import TweetFeed from '../components/Tweet/TweetFeed';
 import TweetSubmit from '../components/Tweet/TweetSubmit';
-import TweetView from '../components/Tweet/TweetView';
-import WhoToFollow from '../components/WhoToFollow';
+
 
 const HomePage = () => {
   return (
     <div>
-   <Card icon1={<Stars/>} text="Home"/>
-   <TweetSubmit/>
-   
- <TweetFeed/>
+   <Header icon1={<Stars/>} text="Home"/>
+   <TweetSubmit text="Tweet" placeholder="What's Happening?"/>
+   <TweetFeed/>
    </div>
   
   );

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 
-import InputComp from "../components/InputComp";
 
-import ButtonWithProg from "../components/ButtonWithProg";
 import { signup,  } from "../api/apiCall";
+import ButtonWithProg from "../components/ButtonWithProg";
+import InputComp from "../components/InputComp";
 import { useApiProgress } from "../Shared/ApiProgress";
 const UserSingUpPage = (props) => {
   const [form, SetForm] = useState({
@@ -55,73 +55,49 @@ const UserSingUpPage = (props) => {
   }
 
   return (
-    <div className="container mt-5  pt-5 " style={{ width: "700px" }}>
-      <div
-        className="card text-center shadow-lg "
-        style={{ borderRadius: "20px", width: "600px", height: "597px" }}
-      >
-        <div className="card-text">
-          <i
-            
-            className="fab fa-twitter"
-            
-            style={{ color: "#1da1f2" ,fontSize:"30px"}}
-           
-          ></i>
-        </div>
-        <div className="card-body">
-          <b
-            className="text-left"
-            style={{ fontFamily: "inherit", fontSize: 23 }}
-          >
-            <p>Create an account</p>
-          </b>
+    <div className="container">
+    {" "}
+    <form>
+      <h5 className="text-center">
+        <strong>Sign Up</strong>
+      </h5>
+      <InputComp
+        name="username"
+        label="Username"
+                error={usernameError}
+        onChange={onChangeEvent}
+      ></InputComp>
+      <InputComp
+        name="displayName"
+        label="Display Name"
+        error={displayNameError}
+        onChange={onChangeEvent}
+      ></InputComp>
+      <InputComp
+        name="password"
+        label="Password"
+        error={passwordError}
+        onChange= {onChangeEvent}
+        type="password"
+      ></InputComp>
+      <InputComp
+        name="passwordRepeat"
+        label="Password Repeat"
+        error={passwordRepeatError}
+        onChange={onChangeEvent}
+        type="password"
+      ></InputComp>
 
-          <InputComp
-            name="username"
-            label="Name"
-            type="text"
-            onChange={onChangeEvent}
-            error={usernameError}
-          ></InputComp>
-          <InputComp
-            name="displayName"
-            label="Display Name"
-            type="text"
-            onChange={onChangeEvent}
-            error={displayNameError}
-          ></InputComp>
-          <InputComp
-            name="password"
-            label="Password"
-            type="password"
-            onChange={onChangeEvent}
-            error={passwordError}
-          ></InputComp>
-          <InputComp
-            name="passwordRepeat"
-            label="PasswordRepeat"
-            type="password"
-            onChange={onChangeEvent}
-            error={passwordRepeatError}
-          ></InputComp>
-
-          
-            
-          
-          <div className="p-5">
-            {" "}
-            <ButtonWithProg
-              disabled={(pendingApiCall,passwordRepeatError!== undefined )}
-              className="btn  rounded-pill pl-3 "
-             pendingApiCall={pendingApiCall}
-              text="SignUp"
-              onClick={onClickSignUp}
-            ></ButtonWithProg>
-          </div>
-        </div>
+      <div className="text-center">
+        <ButtonWithProg
+          disabled={(pendingApiCall&& form === null)}
+          onClick={onClickSignUp}
+          pendingApiCall={pendingApiCall}
+          text="Sign Up"
+        ></ButtonWithProg>
       </div>
-    </div>
+    </form>
+  </div>
   );
 };
 

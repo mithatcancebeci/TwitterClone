@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import HomeOutlinedIcon from "./icons/HomeOutlinedIcon";
 import TwitterIcon from "./icons/TwitterIcon";
 import MessageIcon from "./icons/MessageIcon";
-import "./Nav.css";
 import ExploreOutlinedIcon from "./icons/ExploreOutlinedIcon";
 import NotificationOutlinedIcon from "./icons/NotificationOutlinedIcon";
 import BookMarksOutlinedIcon from "./icons/BookMarksOutlinedIcon";
@@ -22,9 +21,26 @@ import DisplayIcon from "../MoreButtonIcons/DisplayIcon";
 import Keyboard from "../MoreButtonIcons/Keyboard";
 import ProfilePopover from "../ProfilePopover";
 import CheckIcon from "../MoreButtonIcons/CheckIcon";
-
+import { useDispatch, useSelector } from "react-redux";
+import { logoutSuccess } from "../../redux/authAction";
+import './Nav.css'
 
 const Nav = () => {
+  const {username,displayName,image}=useSelector((store)=>{
+    return{
+   
+      username:store.username,
+      displayName:store.displayName,
+      image:store.image
+    }
+   
+
+  });   
+  const dispatch=useDispatch();
+    const onClickLogOut=()=>{
+      dispatch(logoutSuccess());
+    }
+
   const [form, SetForm] = useState({
     home: false,
     explore: false,
@@ -36,19 +52,21 @@ const Nav = () => {
     more: false,
   });
   let className = "icon";
-  const consoleLog = (element) => {
-    console.log(element.target);
-  };
+
   let className1 = "icon active";
 
   return (
-    <div className="navi" onClick={consoleLog}>
-      <Link to="">
+    <div className="navi">    
+            <Link to="/"  onClick={(previousForm) => {
+          SetForm({ ...previousForm, home: true });
+        }}>
         {" "}
         <TwitterIcon />
       </Link>
+   
+  
       <Link
-        to=""
+        to="/"
         onClick={(previousForm) => {
           SetForm({ ...previousForm, home: true });
         }}
@@ -155,8 +173,9 @@ const Nav = () => {
         icon8={<Keyboard/>}
       ></MoreButton>
       <ButtonWithProg className="tweetButton" text="Tweet"/>
-      <ProfilePopover className="profilePopover"  username="@CebeciMithatcan" displayName="MithatcanCebeci" icon={<MoreIcon active={false}/>} icon1={<CheckIcon></CheckIcon>}/>
-    </div>
+      <ProfilePopover className="profilePopover" logOutClick={onClickLogOut}  username={username} displayName={displayName} image={image} />
+   </div>
+  
   );
 };
 

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import DefaultProfileImage from './DefaultProfileImage'
+import CheckIcon from "./MoreButtonIcons/CheckIcon";
 import MoreIcon from "./Nav/icons/MoreIcon";
-import volone1 from "../assets/volone1.jpg.jpg";
 
 const ProfilePopover = (props) => {
+  
   const [toggle, SetToggle] = useState(false);
   const menuClass = `dropdown-menu${toggle ? " show" : ""} `;
   const OnClickToggle = () => {
-    SetToggle(true);
-  };
-  const onClickOffToggle = () => {
-    SetToggle(false);
-  };
-  const { id, logOutClick, username, displayName, icon, className ,icon1} = props;
+    SetToggle(!toggle);
+  }
+  const { image,logOutClick, username, displayName, icon, className ,icon1} = props;
 
   return (
     <div className={className}>
@@ -19,45 +19,48 @@ const ProfilePopover = (props) => {
         <button
           id="dropdownMenuButton"
           data-toggle="dropdown"
-          onDoubleClick={onClickOffToggle}
+     
           onClick={OnClickToggle}
-        >    <img
+        >    <DefaultProfileImage
         className=" image-fit rounded-circle"
         height="48px"
         width="48px"
-        src={volone1}
+        image={image}
         alt=""
-      ></img>
+      ></DefaultProfileImage>
         
           <span><strong>{displayName}</strong><br></br>{username}</span>
-          <i>{icon}</i>
+          <i><MoreIcon></MoreIcon></i>
           
         </button>
         <div className={menuClass} id="a" aria-labelledby="dropdownMenuButton">
           <li >
-            <div> <img
+            <div> <DefaultProfileImage
         className=" image-fit rounded-circle"
         height="48px"
         width="48px"
-        src={volone1}
+        image={image}
         alt=""
-      ></img>
+      ></DefaultProfileImage>
      
           <span><strong>{displayName}</strong> <br></br> <span>{username}</span>  </span>
-        <i>{icon1}</i>
+        <i><CheckIcon></CheckIcon></i>
         </div>
           
           
-            
+     
           </li>
           <hr></hr>
-          <div>
+          <div className="profilePopover-menu">
+        
             <p>Add an existing account</p>
-          </div>
+          
           <hr></hr>
-          <div>
-              <p>Log Out {username}</p>
+          
+              <p onClick={logOutClick} style={{cursor:"pointer"}}>Log Out <strong>{username}</strong></p>
+          
           </div>
+          
        </div>
       </div>
     </div>

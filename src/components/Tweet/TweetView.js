@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { postLike } from "../../api/apiCall";
+import ReplyModal from '../ReplyModal'
 import DefaultProfileImage from "../DefaultProfileImage";
 import LikeIcon from "../Nav/icons/LikeIcon";
 import MoreIcon from "../Nav/icons/MoreIcon";
@@ -9,12 +11,32 @@ import ReTweet from "../Nav/icons/ReTweet";
 import ShareIcon from "../Nav/icons/ShareIcon";
 import Stars from "../Nav/icons/Stars";
 import ProfilePopover from "../ProfilePopover";
+import TweetSubmit from "./TweetSubmit";
 
 const TweetView = (props) => {
-  // const loggedInUser=useSelector((store)=>store.username,store.displayName);
-  const { tweet } = props;
-  const { userVM, message, timestamp, id } = tweet;
-  const { username, displayName } = userVM;
+  const loggedInUser=useSelector((store)=>store.username);
+ const {tweet} =props;
+  const { user, reTweet,content, timestamp,tlike,id,fileAttachment
+   } = tweet;
+  const { username, displayName,image} = user;
+  const ownedByloggedInUser = loggedInUser === username;
+  const [toggle,setToggle]=useState(true);  
+
+  const [modalVisible,setModalVisible]=useState(false)
+ 
+    const addLike=async()=>{
+
+  const body={
+    
+    tlike:toggle?1:-1
+    
+  }
+  
+  await postLike(id,body);
+  console.log("giriyor")
+}
+
+
 
   return (
     <div>
@@ -24,6 +46,7 @@ const TweetView = (props) => {
             width="48"
             height="48"
             className="rounded-circle"
+            image={image}
           />
           <div className="flex-fill m-auto pl-2">
             <Link to={`user/${username}`} className="text-dark">
@@ -40,11 +63,24 @@ const TweetView = (props) => {
                 </span>
               </h6>
             </Link>
-            <div>{tweet.message}</div>
-
+            <div>{content}</div>
+            {fileAttachment && (
+          <div className="files">
+            {fileAttachment.fileType.startsWith("image") && (
+              <img
+                className="file-attachments"
+                src={"images/attachments/" + fileAttachment.name}
+                alt={content}
+              ></img>
+            )}
+            {!fileAttachment.fileType.startsWith("image") && (
+              <strong>Unkown Property</strong>
+            )}
+          </div>
+        )}
             <div className="beat">
-              <div>
-                <ReplyIcon />
+              <div >
+                <span onClick={()=>{setModalVisible(!modalVisible)}}><ReplyIcon/>{modalVisible&&<ReplyModal visible={true} icon={<Stars/>} replyProps={<TweetSubmit text="Reply" placeholder="Tweet Your Reply"/>} ></ReplyModal>}</span> 
               </div>
               <div>
                 <ReTweet />
@@ -53,9 +89,16 @@ const TweetView = (props) => {
               <div>
                 <LikeIcon />
               </div>
-              <div>
-                <ShareIcon />
+              <div  > 
+              <span style={{cursor:"pointer"}} onClick={(e)=>{
+               e.stopPropagation();
+                addLike()
+                setToggle(!toggle)
+              }} ><ShareIcon />{tlike}</span>
               </div>
+              
+             
+              
             </div>
           </div>
         </div>

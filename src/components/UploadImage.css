@@ -1,0 +1,39 @@
+.overlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 1s ease;
+  background-color: #00000099;
+}
+.attachments {
+  width: 35vw;
+  height: 20vw;
+  border-radius: 15px;
+  object-fit: cover;
+ 
+  
+
+}
+.tagPeople {
+  display: flex;
+  flex-direction: row;
+  padding-left: 25px;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.tagPeople > i {
+  padding-right: 3px;
+  vertical-align: middle;
+}
+.tagPeople > i > div > svg {
+  width: 15px;
+  height: 15px;
+}
+.tagPeople > i > div > svg path {
+  fill: #5b7083;
+}
+.tagPeople > span {
+  padding-right: 50px;
+  vertical-align: middle;
+}

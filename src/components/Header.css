@@ -1,0 +1,25 @@
+.heap > div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-right: 1px solid var(--twitter-background);
+  border-bottom: 1px solid var(--twitter-background);
+}
+
+.heap > div > i {
+  margin-bottom: 10px;
+}
+
+.heap > div > div > h5 {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 850;
+}
+.heap > div > div > span {
+  padding-left: 12px;
+  font-weight: 200;
+}
+.heap > div > div {
+  flex-grow: 1;
+  vertical-align: middle;
+}

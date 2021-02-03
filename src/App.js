@@ -10,12 +10,12 @@ import UserSignUpPage from "./pages/UserSingUpPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import { useSelector } from "react-redux";
-import './App.css'
+import "./App.css";
 
-import SearchOnTwitter from "./components/SearchOnTwitter";
+import UserPage from "./pages/UserPage";
 import Nav from "./components/Nav/Nav";
 
-function App(){
+function App() {
   const { isLoggedIn } = useSelector((store) => {
     return {
       isLoggedIn: store.isLoggedIn,
@@ -23,35 +23,34 @@ function App(){
   });
   return (
     <div className="app">
-      <Router> <Switch>
-        
-          <div className="row align-items-start">
-            {isLoggedIn && (
-              <>
+      <Router>
+        {" "}
+        <Switch>
+          {isLoggedIn && (
+            <>
+            <div className="menu">
+               <Nav />
+            </div>
              
-                <div className="col">
-               <Nav/>
-               
-                </div>
-                <div className="col">
-               
-                 
-                    <Route exact path="/" component={HomePage}></Route>
-                 
-                </div>
-                <div className="col">
-                  <SearchOnTwitter></SearchOnTwitter>
-                </div>
-              </>
-            )}
- 
-            {!isLoggedIn && <><Route path="/login" component={LoginPage}></Route></>}
-           <Route path="/signup" component={UserSignUpPage}> </Route>
-          </div>
-         </Switch>
+
+              <Route exact path="/" component={HomePage}></Route>
+               <Route exact path="/user" component={UserPage}></Route>
+             
+            </>
+          )}
+
+          {!isLoggedIn && (
+            <>
+              <Route path="/login" component={LoginPage}></Route>
+            </>
+          )}
+          <Route path="/signup" component={UserSignUpPage}>
+            {" "}
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
-};
+}
 
 export default App;

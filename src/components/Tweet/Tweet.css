@@ -1,76 +1,81 @@
 .tweetSubmit {
-    padding-bottom: 10px;
-    border-bottom: 5px solid var(--twitter-background);
-    padding-right: 10px;
-  }
-  
-  .tweetSubmit > form {
-    display: flex;
-    flex-direction: column;
-    
-  }
-  
-  .tweetSubmitArea {
-    padding-top: 20px;
-    padding-left:20px;
-    padding-right: 20px ;
-    display: flex;
-  }
-  
-  .tweetSubmitArea > input {
-    flex: 1;
-    margin-left: 20px;
-    font-size: 20px;
-    border: none;
-    font-family: sans-serif;
-    
-  }
+  border-right: 1px solid var(--twitter-background);
 
-   .share{
-    display: flex;
-     flex-direction: row;
-     padding-left: 65px;
+  border-bottom: 1px solid var(--twitter-background);
+  width: 600px !important;
 
-} 
-.ttButton>button{
-    background-color: var(--twitter-color) ;
-    border: none ;
-    color: white ;
-    font-weight: 400 ;
-    border-radius: 30px;
-    width: 80px;
-    height: 40px ;
-   
-    
-    
+  height: auto !important;
 }
 
-.ttButton{
-text-align: right;
-padding: 10px;flex-grow: 1;
+.tweetSubmitArea {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
-textarea{
-  min-width: 550px;
-  max-height: 50px;
-  border:none;
-  outline:none;
-  padding-left: 10px;
-  resize:none
-}
-
-.card{
-  padding: 6px;
-  font-size:15px;}
-
-  .beat{
+.share {
+  border: none;
+  padding: 5px;
+     flex-wrap: wrap;
+    
 display: flex;
-    flex-direction: row;
-    
-    
-  }
-  .beat>div{
-    padding-right: 100px;
-  }
-
+  justify-content: flex-end;
  
+}
+.share1 {
+  flex:5;
+  flex-grow: 1;
+ 
+ 
+}
+.ttButton > button {
+  background-color: var(--twitter-color) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 900 !important;
+  text-transform: inherit !important;
+  border-radius: 30px !important;
+  width: 80px;
+  height: 40px !important;
+  
+}
+
+.ttButton {
+  padding: 9px;
+  
+
+}
+
+textarea {
+  flex: 1;
+  padding-left: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+  max-height: 50px;
+}
+
+.card {
+  padding: 6px;
+  font-size: 15px;
+}
+
+.beat {
+  display: flex;
+  flex-direction: row;
+}
+.beat > div {
+  padding-left: 5px;
+
+  padding-right: 80px;
+}
+
+.file-attachments {
+  width: 32vw;
+  height: 20vw;
+  padding-top: 5px;
+  padding-left: 5px;
+
+  border-radius: 25px;
+  object-fit: cover;
+}

@@ -24,6 +24,8 @@ import CheckIcon from "../MoreButtonIcons/CheckIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutSuccess } from "../../redux/authAction";
 import './Nav.css'
+import TweetSubmit from "../Tweet/TweetSubmit";
+import ReplyModal from '../ReplyModal'
 
 const Nav = () => {
   const {username,displayName,image}=useSelector((store)=>{
@@ -40,7 +42,7 @@ const Nav = () => {
     const onClickLogOut=()=>{
       dispatch(logoutSuccess());
     }
-
+  const[tweetMode,setTweetMode]=useState(false)
   const [form, SetForm] = useState({
     home: false,
     explore: false,
@@ -143,7 +145,7 @@ const Nav = () => {
         />
       </Link>
       <Link
-        to=""
+        to={`/user/${username}`}
         onClick={(previousForm) => {
           SetForm({ ...previousForm, profile: true });
         }}
@@ -172,7 +174,8 @@ const Nav = () => {
         icon7={<DisplayIcon/>}
         icon8={<Keyboard/>}
       ></MoreButton>
-      <ButtonWithProg className="tweetButton" text="Tweet"/>
+      <ButtonWithProg  onClick={()=>setTweetMode(true)} className="tweetButton" text="Tweet"/>
+      {tweetMode&& <ReplyModal visible={true}  contentProps={<TweetSubmit tR={true}/>}></ReplyModal>}
       <ProfilePopover className="profilePopover" logOutClick={onClickLogOut}  username={username} displayName={displayName} image={image} />
    </div>
   

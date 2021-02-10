@@ -1,15 +1,12 @@
-import React from "react";
-import ButtonWithProg from "./ButtonWithProg";
+import React, { useEffect, useState } from "react";
+
 import './Modal.css'
-import Stars from './Nav/icons/Stars'
-import TweetFeed from "./Tweet/TweetFeed";
-import TweetSubmit from './Tweet/TweetSubmit'
-import TweetView from "./Tweet/TweetView";
-const Modal = (props) => {
-
-
-  const {
-    visible,contentProps,replyProps,icon
+import CloseIcon from "./Nav/icons/CloseIcon";
+const ReplyModal = (props) => {
+  
+  
+    const {
+  visible, contentProps,replyProps,text,onClicked
      } = props;
   let className = "modal fade";
   if (visible) {
@@ -21,24 +18,26 @@ const Modal = (props) => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-             {icon}
-              
+             <span style={{cursor:"pointer"}} onClick={onClicked}><CloseIcon className="icon"/></span>
+             <span>{text}</span>
             </div>
             <div className="modal-body">
-             <div>
+            {replyProps}
              {contentProps}
-              </div>
+                 </div>
+          
+              
              
               <div>
-     {replyProps}
+    
               </div>
              
             </div>
                      </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
-export default Modal;
+export default ReplyModal;

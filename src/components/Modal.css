@@ -3,21 +3,63 @@ div>.modal-dialog{
     height:100%!important;
     
 }
+.info{
+display: inline-flex;
+align-items: center;
 
+}
+.info>span{
+
+    font-size: 18px;
+    font-weight: 900;
+}
+.save>div>button{
+    border: none;
+    background-color: var(--twitter-color);
+    color:white;
+    border-radius:36px;
+    padding:8px;
+    
+}
 
 
 div>.modal-content{
-    width: 620px;
+    width: 630px!important;
     height: auto; 
     border-radius:20px;
 }
 div>.modal-header{
     width: auto;
     height: auto; 
+    align-items: center;
     
 }
-div>.modal-body{
-    width: 100%;
-    height:100%; 
-    
+
+.modal-body{
+width: auto;
+height:auto;}
+.backToImage{
+    align-items: center;
 }
+
+.modalCard{
+    border: 1px solid var(--twitter-background);
+    width: 600px !important;
+    height: 100% !important;
+    display: block;
+}
+.modalImage{
+    width: auto;
+    height: auto;
+  margin-top: 100px;
+  margin-left: 10px; }
+
+  .modalImage>img{
+      border:5px solid white;
+  
+    }
+    .icongift>svg path{
+        fill: white;
+
+        
+    }

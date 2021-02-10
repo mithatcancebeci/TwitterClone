@@ -38,8 +38,7 @@ const MoreButton = (props) => {
   return (
     <div
       className="dropup"
-     onClick={()=>SetToggle(!toggle)}
-    >
+     onClick={()=>SetToggle(!toggle)}>
       <span
         style={{ cursor: "pointer" }}
         id="dropdownMenuButton"

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { postReply, postTweet, postTweetAttachment } from "../../api/apiCall";
+import {  postReply, postTweet, postTweetAttachment } from "../../api/apiCall";
 import "./Tweet.css";
 import DefaultProfileImage from "../DefaultProfileImage";
 import ButtonWithProg from "../ButtonWithProg";
@@ -8,27 +8,28 @@ import InputComp from "../InputComp";
 import { useSelector } from "react-redux";
 import UploadImage from "../UploadImage";
 import { useApiProgress } from "../../Shared/ApiProgress";
-
 import ProfileOutlinedIcon from "../Nav/icons/ProfileOutlinedIcon";
 import ListOutlinedIcon from "../Nav/icons/ListOutlinedIcon";
 
-const TweetSubmit = ({placeholder,text}) => {
+const TweetSubmit = (props) => {
   const [tweetMessage, setTweet] = useState("");
   const { image } = useSelector((store) => ({
     image: store.image,
   }));
+  const{tR}=props;
+
   const [focused, setFocused] = useState(false);
   const [errors, SetErrors] = useState({});
   const [newImage, SetNewImage] = useState();
   const [attachmentId, setAttachmentId] = useState();
-  const [tweetReply,setTweetReply]=useState("");
+
   useEffect(() => {
     if (!focused) {
       setTweet("");
       SetErrors({});
       SetNewImage();
       setAttachmentId();
-      setTweetReply("")
+    
     }
   }, [focused]);
   useEffect(() => {
@@ -48,17 +49,21 @@ const TweetSubmit = ({placeholder,text}) => {
       }
     }
   };
-  // const postReplys=async()=>{
-  //   const body={
-  //     reply:tweetReply
-  //   }
-  //   try {
-  //   const response=await postReply(body)
-  //   } catch (e) {
-  //   SetErrors(e.response.data)
-  //   }
-  // }
-  const uploadFile = async (file) => {
+  const onClickReply = async () => {
+    const body = {
+      text: tweetMessage,
+      attachmentId: attachmentId,
+    };
+    try {
+      await postReply(1,body);
+      setFocused(false);
+    } catch (e) {
+      if (e.response.data.validationErrors) {
+        SetErrors(e.response.data.validationErrors);
+      }
+    }
+  };
+    const uploadFile = async (file) => {
     const attachment = new FormData();
     attachment.append("file", file);
     const response = await postTweetAttachment(attachment);
@@ -93,10 +98,10 @@ const TweetSubmit = ({placeholder,text}) => {
           />
 
           <textarea
-            onChange={(e) => setTweet(e.target.value)}
+            onChange={(e) =>setTweet(e.target.value)}
             value={tweetMessage}
             onFocus={() => setFocused(true)}
-            placeholder={placeholder}
+            placeholder={tR?"What's Happening?":"Your Reply Tweet"}
             type="text"
           />
         </div>
@@ -109,7 +114,7 @@ const TweetSubmit = ({placeholder,text}) => {
                 active
                 id="upload-photo"
                 type="file"
-                name="photo"
+              
                 onChange={onChangeFile}
               ></InputComp>
             )}
@@ -123,9 +128,9 @@ const TweetSubmit = ({placeholder,text}) => {
             )}
           </div>
     <ButtonWithProg
-            onClick={onClickTweet}
+            onClick={tR ? onClickTweet : onClickReply}
             type="submit"
-            text={text}
+            text={tR?"Tweet":"Reply"}
             className="ttButton"
             disabled={tweetMessage.length===0 && !newImage}
           ></ButtonWithProg>{" "}
@@ -139,3 +144,4 @@ const TweetSubmit = ({placeholder,text}) => {
 };
 
 export default TweetSubmit;
+

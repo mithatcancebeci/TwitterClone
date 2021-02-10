@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getUser } from '../api/apiCall';
 
 import DefaultProfileImage from '../components/DefaultProfileImage';
-import Header from '../components/Header';
+import Header from '../components/HeaderCard/Header';
+import Stars from '../components/Nav/icons/Stars';
+import ProfileCard from '../components/ProfileCard';
+import TweetFeed from '../components/Tweet/TweetFeed';
+import { useApiProgress } from '../Shared/ApiProgress';
 
-const UserPage = () => {
-    const username="Mithatcan";
+const UserPage = (props) => {
+  const [user,setUser]=useState({})
+   const {username}=useParams();
+   console.log("username" +username)
+   const pendingApiCall = useApiProgress('get', "/api/1.0/user/" + username, true);
+   useEffect(() => {
+    const loadUser = async () => {
+      try {
+        const response = await getUser(username);
+        setUser(response.data);
+      } catch (error) {
+      
+      }
+    };
+    loadUser();
+  }, [username]);
     return (
-        <div>
-<Header text={`${username}`}/>
-<div className="card">
-<div className="backgd-img">
-     
-
-
-  <div className="card-body">
+      <div>
+        <Header icon={<Stars/>}text={username}></Header>
+        <ProfileCard username={username} />
+        <TweetFeed/>
         
-    <h5 className="card-title">Card title</h5>
-    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
- </div>
-</div>
- </div>
- </div>
+      </div>
+
 
     );
 };

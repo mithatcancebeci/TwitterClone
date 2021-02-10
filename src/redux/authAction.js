@@ -11,12 +11,14 @@ export const loginSuccess=(authState)=>{
         type:ACTIONS.LOGIN_SUCCESS,payload:authState  
     }
 }
-export const updateSuccess=({displayName,image})=>{
+export const updateSuccess=({displayName,image,bgImage,description})=>{
  return {
    type:ACTIONS.UPDATE_SUCCESS,
    payload: {
      displayName,
-     image
+     image,
+     bgImage,
+     description
    }
  }
 }

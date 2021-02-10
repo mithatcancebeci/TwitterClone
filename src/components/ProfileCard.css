@@ -1,0 +1,135 @@
+.profileCard {
+  border: 1px solid var(--twitter-background);
+  width: 600px !important;
+  height: 100% !important;
+  display: block;
+  
+}
+.profileImage{
+    width: auto;
+    height: auto;
+  margin-top: 140px;
+  margin-left: 10px;
+
+}
+
+.profileImage>img {
+  border: 5px solid white;
+}
+
+.profileImage>div{
+  margin-top:60px;
+  float:right
+}
+.profileImage>div>button{
+  border:1px solid var(--twitter-color);
+  border-radius:32px;
+  color:var(--twitter-color);
+  background-color: #fff;
+  margin:3px;
+  padding: 6px;
+  font-size: 14px;
+}
+.profileImage>div>button:hover{
+  background-color: #e8f5fe;
+}
+
+
+.user{
+  margin-left: 15px;
+}
+.userinfo > span {
+  display: block;
+  font-size: 18px;
+  color: black;
+  font-weight: 900;
+}
+.userinfo1 > span {
+  font-size: 14px;
+  font-weight: 100;
+  color: #5b7083;
+}
+.followers{
+  padding:5px;
+}
+.profileCard-footer{
+  display: flex;
+width: auto;
+height: auto;
+  
+  border-bottom: 1px solid var(--twitter-background);
+ }
+ .profileCard-footer>span:hover{
+  color:var(--twitter-color)
+ }  
+ .T-weet{
+width: 25%;
+text-align: center;
+padding:10px;
+
+
+ }
+.T-weet:hover{
+  background-color: #e8f5fe;
+
+}
+.T-weet>span{
+color:#5b7083;
+font-size:14px;
+font-weight: 700;  
+padding:5px;
+}
+.R-tweet{
+  width: 25%;
+  text-align: center;
+  padding:10px;
+  
+  
+   }
+  .R-tweet:hover{
+    background-color: #e8f5fe;
+  
+  }
+  .R-tweet>span{
+  color:#5b7083;
+  font-size:14px;
+  font-weight: 700;  
+  padding:5px;
+  }
+  
+  
+  .T-media{
+    width: 25%;
+    text-align: center;
+    padding:10px;
+    
+    
+     }
+    .T-media:hover{
+      background-color: #e8f5fe;
+    
+    }
+    .T-media>span{
+    color:#5b7083;
+    font-size:14px;
+    font-weight: 700;  
+    padding:5px;
+    }
+    .T-Like{
+      width: 25%;
+      text-align: center;
+      padding:10px;
+      
+      
+       }
+       .T-Like:hover{
+        background-color: #e8f5fe;
+       
+      
+      }
+      .T-Like>span{
+      color:#5b7083;
+      font-size:14px;
+      font-weight: 700;  
+      padding:5px;
+      }

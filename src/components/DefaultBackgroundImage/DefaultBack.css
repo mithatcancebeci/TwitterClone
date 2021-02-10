@@ -1,0 +1,6 @@
+.BackgroundImage>img{
+    width:598px!important;
+    height:auto;
+    object-fit: cover;
+    position: absolute;
+}

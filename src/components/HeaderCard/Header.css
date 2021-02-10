@@ -1,3 +1,7 @@
+.heap{
+  width:auto;
+  height:auto;
+}
 .heap > div {
   display: flex;
   align-items: center;

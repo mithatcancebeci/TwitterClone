@@ -1,12 +1,12 @@
 body {
     --twitter-color: #1da1f2;
     --twitter-background: #e6ecf0;
-     position: absolute;
-    width: 1300px;
+     position: sticky;
+     width: 1300px;
      left: calc(50% - 1300px/2 - 0.5px);
-      top: 0px;
-      bottom: 0px;
-  }
+     top: 0px;
+     bottom: 0px;
+  } 
 
 
   .app {
@@ -16,6 +16,5 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
-  }
-
- 
+  } 
+  

@@ -14,7 +14,6 @@ const TweetView = (props) => {
     const { tweet} = props;
     const {
     user,
-    replies,
     reTweet,
     content,
     timestamp,
@@ -91,7 +90,7 @@ const TweetView = (props) => {
                       visible={true}
                       contentProps={<TweetSubmit id={id} tR={false}/>} 
                     ></ReplyModal>:<ReplyModal replyProps={content}   tUsername={username}
-                    tDisplayName={displayName} have={false} visible={true} contentProps={<TweetSubmit id={id} tR={false}/>}/>}
+                    tDisplayName={displayName}   have={false} visible={true} contentProps={<TweetSubmit id={id} tR={false}/>}/>}
                  </div>
               
                  
@@ -107,7 +106,7 @@ const TweetView = (props) => {
               </div>
               <div>
                <span><ShareIcon />{tlike}
-               {replies}
+       
                 </span>
                
               </div>

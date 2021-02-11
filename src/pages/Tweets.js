@@ -17,16 +17,7 @@ const Tweets = (props) => {
     
     const id=props.match.params.id
 
-   useEffect(()=>{
-        const loadOneTweet=async()=>{
-          const response= await oneTweet(id);
-       
-         setTweets(response.data)
-       
-        setloaded(true)
-        }
-        loadOneTweet();
-    },[id])
+   console.log("burdayız"+tweets)
     useEffect(()=>{
         const loadOneTweet=async()=>{
           const response= await oneTweet(id);
@@ -104,10 +95,82 @@ const Tweets = (props) => {
                <span><ShareIcon />
               
                 </span>
-               
+          
+
               </div>
-            {tweets.replies}
+            
+            </div>     {tweets.replies.map((replies)=>{
+                return <div key={replies.id}>
+                  <div className="card">
+        <div className="d-flex">
+          <DefaultProfileImage
+            width="48"
+            height="48"
+            className="rounded-circle"
+            
+          />  <div className="flex-fill m-auto pl-2">
+          <Link to={`user/${replies.user.username}`} className="text-dark">
+            <h6>
+              <strong>{replies.user.displayName}</strong>
+              <span
+                style={{
+                  color: "#5b7083",
+                  fontSize: "13px",
+                  paddingLeft: "3px",
+                }}
+              >
+                @{replies.user.username}{" "}
+              </span>
+            </h6>
+          </Link>
+          <div>
+             {replies.text} 
+             
+             </div>
+             {replies.fileAttachment && (
+              <div className="files">
+                {replies.fileAttachment.fileType.startsWith("image") && (
+                  <img
+                    className="file-attachments"
+                    src={"images/attachments/" + replies.fileAttachment.name}
+                    alt={replies.content}
+                  ></img>
+                )}
+                {!replies.fileAttachment.fileType.startsWith("image") && (
+                  <strong>Unkown Property</strong>
+                )}
+              </div>
+            )}
+              <div className="beat">
+              <div>
+                <span
+                    >
+                    <ReplyIcon />
+                  
+                </span>
+              </div>
+              <div>
+                <ReTweet />
+              </div>
+
+              <div>
+                <LikeIcon />
+              </div>
+              <div>
+               <span><ShareIcon />
+              
+                </span>
+          
+
+              </div>
+            
             </div> 
+          </div>
+          </div>
+          </div>
+                </div>
+})} 
+
            
           </div>
         </div>

@@ -38,9 +38,7 @@ export const postLike = (id, body) => {
 export const postReply = (id, body) => {
   return axios.post(`/api/1.0/postReply/${id}`, body);
 };
-export const getReply = (page=0) => {
-  return axios.get(`/api/1.0/getReply?page=${page}`);
-};
+
 export const updateUser =(username,body)=>{
 return axios.put(`/api/1.0/user/${username}`,body)
 

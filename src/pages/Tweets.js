@@ -11,16 +11,28 @@ import ReTweet from '../components/Nav/icons/ReTweet';
 import ShareIcon from '../components/Nav/icons/ShareIcon';
 import Stars from '../components/Nav/icons/Stars';
 const Tweets = (props) => {
-   
+  
     const [tweets,setTweets]=useState({})
     const [loaded,setloaded]=useState(false);
- const id=props.match.params.id
+    
+    const id=props.match.params.id
 
+   useEffect(()=>{
+        const loadOneTweet=async()=>{
+          const response= await oneTweet(id);
+       
+         setTweets(response.data)
+       
+        setloaded(true)
+        }
+        loadOneTweet();
+    },[id])
     useEffect(()=>{
         const loadOneTweet=async()=>{
-        const response= await oneTweet(id);
-        
+          const response= await oneTweet(id);
+       
          setTweets(response.data)
+       
         setloaded(true)
         }
         loadOneTweet();
@@ -94,7 +106,7 @@ const Tweets = (props) => {
                 </span>
                
               </div>
-            
+            {tweets.replies}
             </div> 
            
           </div>

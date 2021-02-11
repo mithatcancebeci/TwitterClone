@@ -25,7 +25,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutSuccess } from "../../redux/authAction";
 import './Nav.css'
 import TweetSubmit from "../Tweet/TweetSubmit";
-import ReplyModal from '../ReplyModal'
+import ReplyModal from '../Modal/ReplyModal'
 
 const Nav = () => {
   const {username,displayName,image}=useSelector((store)=>{

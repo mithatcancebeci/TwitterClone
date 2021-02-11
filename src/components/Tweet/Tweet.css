@@ -79,3 +79,11 @@ textarea {
   border-radius: 25px;
   object-fit: cover;
 }
+.oneTweet{
+  color:black;
+  text-decoration: none;
+}
+.oneTweet:hover{
+  color:black;
+  text-decoration: none;
+}

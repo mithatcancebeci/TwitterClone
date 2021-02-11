@@ -6,10 +6,10 @@ import DefaultBackgroundImage from "./DefaultBackgroundImage/DefaultBackgroundIm
 import DefaultProfileImage from "./DefaultProfileImage";
 import { updateUser } from "../api/apiCall";
 import "./ProfileCard.css";
-import ReplyModal from "./ReplyModal";
+import ReplyModal from "./Modal/ReplyModal";
 import { updateSuccess } from "../redux/authAction";
 import Stars from "./Nav/icons/Stars";
-import EditModal from "./EditModal";
+import EditModal from "./Modal/EditModal"
 const ProfileCard = (props) => {
   const {displayName,username}=props;
   const [inEditMode, SetEditMode] = useState(false);

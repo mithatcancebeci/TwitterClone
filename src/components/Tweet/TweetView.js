@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ReplyModal from "../ReplyModal";
+import ReplyModal from "../Modal/ReplyModal";
 import DefaultProfileImage from "../DefaultProfileImage";
 import LikeIcon from "../Nav/icons/LikeIcon";
 import ReplyIcon from "../Nav/icons/ReplyIcon";
@@ -25,7 +25,7 @@ const TweetView = (props) => {
   const { username, displayName, image } = user;
  const [modalVisible, setModalVisible] = useState(false);
  
- 
+ let xp;  
 
   return (
     <div>
@@ -53,7 +53,7 @@ const TweetView = (props) => {
               </h6>
             </Link>
             <div>
-              <Link to={`tweet/${id}`}> {content} </Link>
+              <Link to={`tweet/${id}`} className="oneTweet"> {content} </Link>
              
              </div>
             {fileAttachment && (
@@ -73,13 +73,27 @@ const TweetView = (props) => {
             <div className="beat">
               <div>
                 <span
-                        onClick={()=>setModalVisible(true)}          >
-                    <ReplyIcon />
+                        onClick={()=>{
+                         setModalVisible(true)
+                                                
+                        }}          >
+               
+               <ReplyIcon/>
                   {modalVisible && (
-                 <ReplyModal
+                 
+                <div>
+                  {fileAttachment?<ReplyModal
+                      have={true}
+                      tUsername={username}
+                      tDisplayName={displayName}
+                      replyProps={content}
+                      attachmentProps={fileAttachment.name}
                       visible={true}
-                      contentProps={<TweetSubmit tR={false}/>} 
-                    ></ReplyModal>
+                      contentProps={<TweetSubmit id={id} tR={false}/>} 
+                    ></ReplyModal>:<ReplyModal replyProps={content}   tUsername={username}
+                    tDisplayName={displayName} have={false} visible={true} contentProps={<TweetSubmit id={id} tR={false}/>}/>}
+                 </div>
+              
                  
                   )}
                 </span>

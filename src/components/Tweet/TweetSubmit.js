@@ -17,7 +17,7 @@ const TweetSubmit = (props) => {
     image: store.image,
   }));
   const{tR}=props;
-
+const{id}=props;
   const [focused, setFocused] = useState(false);
   const [errors, SetErrors] = useState({});
   const [newImage, SetNewImage] = useState();
@@ -55,7 +55,7 @@ const TweetSubmit = (props) => {
       attachmentId: attachmentId,
     };
     try {
-      await postReply(1,body);
+      await postReply(id,body);
       setFocused(false);
     } catch (e) {
       if (e.response.data.validationErrors) {

@@ -63,3 +63,20 @@ height:auto;}
 
         
     }
+
+
+.fileAttachmentReply{
+    width: 37vw;
+    height: 20vw;
+    padding-top: 5px;
+    padding-left: 5px;
+    align-items: center;
+    border-radius: 25px;
+    object-fit: cover;
+}
+.defaultImagePage{
+    display: flex;
+    padding-bottom:50px;
+
+    padding-left:8px;
+}

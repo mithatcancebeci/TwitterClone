@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import ButtonWithProg from "./ButtonWithProg";
-import CloseIcon from './Nav/icons/CloseIcon'
-import DefaultBackgroundImage from './DefaultBackgroundImage/DefaultBackgroundImage'
+import ButtonWithProg from "../ButtonWithProg";
+import CloseIcon from '../Nav/icons/CloseIcon'
+import DefaultBackgroundImage from '../DefaultBackgroundImage/DefaultBackgroundImage'
 import './Modal.css'
-import DefaultProfileImage from "./DefaultProfileImage";
-import InputComp from "./InputComp";
+import DefaultProfileImage from "../DefaultProfileImage";
+import InputComp from "../InputComp";
 const EditModal = (props) => {
 const {visible}=props;
 

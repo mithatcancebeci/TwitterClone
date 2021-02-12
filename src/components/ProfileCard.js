@@ -11,6 +11,7 @@ import { updateSuccess } from "../redux/authAction";
 import Stars from "./Nav/icons/Stars";
 import EditModal from "./Modal/EditModal"
 import TweetFeed from "./Tweet/TweetFeed";
+import ReplyFeed from "./ReplyFeed";
 const ProfileCard = (props) => {
   const {displayName,username}=props;
   
@@ -67,16 +68,20 @@ const ProfileCard = (props) => {
           setForm({ ...previousForm, tweet: true }); 
         }} >
           <div className={form.tweet?className1:className}>
-             <Link to="/">Tweets</Link>
+           <span>Tweets</span>  
+            
+          </div>
+      
+           <div>
+           
           </div>
          
-       
         </div>
         <div onClick={(previousForm) => {
           setForm({ ...previousForm, tweetsandReplies:true }); 
         }} >
           <div className={form.tweetsandReplies?className1:className}>
-             <Link  >Tweets&Replies</Link>
+             <span>Tweets&Replies</span>
           </div>
          
        
@@ -86,7 +91,7 @@ const ProfileCard = (props) => {
           setForm({ ...previousForm, media:true }); 
         }} >
           <div className={form.media?className1:className}>
-             <Link >Media</Link>
+             <span >Media</span>
           </div>
          
        
@@ -96,13 +101,15 @@ const ProfileCard = (props) => {
           setForm({ ...previousForm, like:true }); 
         }} >
           <div className={form.like?className1:className}>
-             <Link >Likes</Link>
+             <span>Likes</span>
           </div>
          
        
       
         </div>
-      </div>
+      </div>         
+     {form.tweet && <TweetFeed/>}
+     {form.tweetsandReplies && <ReplyFeed username={username}/>}
     </div>
   );
 };

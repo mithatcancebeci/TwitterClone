@@ -65,29 +65,29 @@
  .T-weet{
   
   padding: 20px;
-  padding-left:45px;
-  padding-right:45px;
-
-  font-size:15px;
+  padding-left:46px;
+  padding-right:46px;
+ 
+  font-size:14px;
   font-weight: 600;
   font-family: sans-serif;
   color:#3da1f2
  
  }
- .T-weet>a{
+ .T-weet>span{
    text-decoration: none;
    color:#5b7083
  }
- .T-weet-active>a{
+ .T-weet-active>span{
   text-decoration: none;
   color:var(--twitter-color)
 }
- .T-weet>a:hover{
+ .T-weet>span:hover{
    text-decoration: none;
    color:var(--twitter-color)
    
  }
- .T-weet-active>a:hover{
+ .T-weet-active>span:hover{
   text-decoration: none;
   color:var(--twitter-color)
 }
@@ -97,7 +97,7 @@
    color:var(--twitter-color)
 
  }
- .T-weet:hover>a{
+ .T-weet:hover>span{
  
  
   color:var(--twitter-color)
@@ -108,13 +108,13 @@
   width: auto;
   height: auto;
   padding: 20px;
-  font-size:15px;
-  padding-left:45px;
-  padding-right:45px;
+  font-size:14px;
+  padding-left:46px;
+  padding-right:46px;
 
   font-weight: 600;
   font-family: sans-serif;
-   color:#3da1f2;
+   color:var(--twitter-color);
    border-bottom:3px solid var(--twitter-color);
    
   

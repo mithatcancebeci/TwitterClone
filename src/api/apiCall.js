@@ -46,7 +46,7 @@ export const updateUser =(username,body)=>{
 return axios.put(`/api/1.0/user/${username}`,body)
 
 }
-export const getUserOfReplies=(username,page)=>{
+export const getUserOfReplies=(username,page=0)=>{
   return axios.get(`/api/1.0/user/${username}/replies?=${page}`)
 }
 export const oneTweet = (id)=>{

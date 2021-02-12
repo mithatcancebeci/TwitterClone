@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getUserOfReplies } from '../api/apiCall';
+import { getUserOfReplies } from '../../api/apiCall';
+import ReplyView from './ReplyView';
 
 const ReplyFeed = (props) => {
    const [RepliesPage,setRepliesPage]=useState({
@@ -28,8 +29,8 @@ const ReplyFeed = (props) => {
     },[username]);
     return (
         <div>
-            {content.map((replies) => {
-        return <div key={replies.id}>{replies.tweet.user.password}</div>;
+            {content.map((reply) => {
+        return <ReplyView key={reply.id} reply={reply}></ReplyView>;
       })} 
         </div>
     );

@@ -11,7 +11,7 @@ import { updateSuccess } from "../redux/authAction";
 import Stars from "./Nav/icons/Stars";
 import EditModal from "./Modal/EditModal"
 import TweetFeed from "./Tweet/TweetFeed";
-import ReplyFeed from "./ReplyFeed";
+import ReplyFeed from "./Replies/ReplyFeed";
 const ProfileCard = (props) => {
   const {displayName,username}=props;
   
@@ -109,7 +109,7 @@ const ProfileCard = (props) => {
         </div>
       </div>         
      {form.tweet && <TweetFeed/>}
-     {form.tweetsandReplies && <ReplyFeed username={username}/>}
+     {form.tweetsandReplies &&<> <TweetFeed/> <ReplyFeed username={username}/></>}
     </div>
   );
 };

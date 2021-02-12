@@ -25,11 +25,12 @@ const UserPage = (props) => {
     };
     loadUser();
   }, [username]);
+
     return (
       <div>
         <Header icon={<Stars/>}text={username}></Header>
-        <ProfileCard username={username} />
-        <TweetFeed/>
+        <ProfileCard username={username} displayName={user.displayName}/>
+       
         
       </div>
 

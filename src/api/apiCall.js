@@ -32,6 +32,9 @@ export const getTweet = (username, page = 0) => {
 export const postTweetAttachment = (attachment) => {
   return axios.post("/api/1.0/tweet-attachments", attachment);
 };
+export const postReplyAttachment = (attachmentReplies) => {
+  return axios.post("/api/1.0/reply-attachments", attachmentReplies);
+};
 export const postLike = (id, body) => {
   return axios.post(`/api/1.0/likes/${id}`, body);
 };
@@ -42,6 +45,9 @@ export const postReply = (id, body) => {
 export const updateUser =(username,body)=>{
 return axios.put(`/api/1.0/user/${username}`,body)
 
+}
+export const getUserOfReplies=(username,page)=>{
+  return axios.get(`/api/1.0/user/${username}/replies?=${page}`)
 }
 export const oneTweet = (id)=>{
   return axios.get(`/api/1.0/tweet/${id}`)

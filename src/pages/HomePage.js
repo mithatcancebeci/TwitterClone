@@ -12,7 +12,6 @@ const HomePage = () => {
     <div>
    <Header icon1={<Stars/>} text="Home"/>
    <TweetSubmit tR={true} text="Tweet" placeholder="What's Happening?"/>
-
    <TweetFeed/>
    
    </div>

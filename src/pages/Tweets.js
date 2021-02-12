@@ -87,23 +87,10 @@ const Tweets = (props) => {
                         }}          >
                
                <ReplyIcon badge={tweets.replies_count}/>
-                  {modalVisible && (
-                 
-                <div>
-                  {tweets.fileAttachment?<ReplyModal
-                      have={true}
-                      tUsername={tweets.user.username}
-                      tDisplayName={tweets.user.displayName}
-                      replyProps={tweets.content}
-                      attachmentProps={tweets.fileAttachment.name}
-                      visible={true}
-                      contentProps={<TweetSubmit id={id} tR={false}/>} 
-                    ></ReplyModal>:<ReplyModal replyProps={tweets.content}   tUsername={tweets.user.username}
-                    tDisplayName={tweets.user.displayName}   have={false} visible={true} contentProps={<TweetSubmit id={id} tR={false}/>}/>}
-                 </div>
+      
               
                  
-                  )}
+                
                 </span>
                 </div>
               <div>
@@ -173,23 +160,7 @@ const Tweets = (props) => {
                         }}          >
                
                <ReplyIcon badge={tweets.replies_count}/>
-                  {modalVisible && (
-                 
-                <div>
-                  {replies.fileAttachment?<ReplyModal
-                      have={true}
-                      tUsername={replies.user.username}
-                      tDisplayName={replies.user.displayName}
-                      replyProps={replies.text}
-                      attachmentProps={replies.fileAttachment.name}
-                      visible={true}
-                      contentProps={<TweetSubmit id={id} tR={false}/>} 
-                    ></ReplyModal>:<ReplyModal replyProps={replies.text}   tUsername={replies.user.username}
-                    tDisplayName={replies.user.displayName}   have={false} visible={true} contentProps={<TweetSubmit id={id} tR={false}/>}/>}
-                 </div>
               
-                 
-                  )}
                 </span>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  postReply, postTweet, postTweetAttachment } from "../../api/apiCall";
+import {  postReply, postTweet, postTweetAttachment ,postReplyAttachment} from "../../api/apiCall";
 import "./Tweet.css";
 import DefaultProfileImage from "../DefaultProfileImage";
 import ButtonWithProg from "../ButtonWithProg";
@@ -22,6 +22,7 @@ const{id}=props;
   const [errors, SetErrors] = useState({});
   const [newImage, SetNewImage] = useState();
   const [attachmentId, setAttachmentId] = useState();
+  const [attachmentRepliesId,setAttachmentRepliesId]=useState();
 
   useEffect(() => {
     if (!focused) {
@@ -63,12 +64,30 @@ const{id}=props;
       }
     }
   };
+  const uploadFileReplies= async(file)=>{
+    const attachmentReplies=new FormData();
+    attachmentReplies.append("file",file)
+    const response=await postReplyAttachment(attachmentReplies);
+    setAttachmentRepliesId(response.data.id)
+  }
     const uploadFile = async (file) => {
     const attachment = new FormData();
     attachment.append("file", file);
     const response = await postTweetAttachment(attachment);
     setAttachmentId(response.data.id);
   };
+  const onChangeReplyFile=(event)=>{
+    if(event.target.files.length<1){
+      return
+    }
+    const file=event.target.files[0]
+    const fileReader=new FileReader();
+    fileReader.onloadend=()=>{
+      SetNewImage(fileReader.result);
+      uploadFileReplies(file)
+    }
+fileReader.readAsDataURL(file);
+  }
   const onChangeFile = (event) => {
     if (event.target.files.length < 1) {
       return;
@@ -115,7 +134,7 @@ const{id}=props;
                 id="upload-photo"
                 type="file"
               
-                onChange={onChangeFile}
+                onChange={tR?onChangeFile:onChangeReplyFile}
               ></InputComp>
             )}
             {newImage && (

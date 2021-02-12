@@ -84,6 +84,7 @@ const TweetView = (props) => {
                 <div>
                   {fileAttachment?<ReplyModal
                       have={true}
+                      
                       tUsername={username}
                       tDisplayName={displayName}
                       replyProps={content}

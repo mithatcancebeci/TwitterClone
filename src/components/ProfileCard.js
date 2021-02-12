@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import ButtonWithProg from "./ButtonWithProg";
 import DefaultBackgroundImage from "./DefaultBackgroundImage/DefaultBackgroundImage";
 import DefaultProfileImage from "./DefaultProfileImage";
@@ -10,9 +10,20 @@ import ReplyModal from "./Modal/ReplyModal";
 import { updateSuccess } from "../redux/authAction";
 import Stars from "./Nav/icons/Stars";
 import EditModal from "./Modal/EditModal"
+import TweetFeed from "./Tweet/TweetFeed";
 const ProfileCard = (props) => {
   const {displayName,username}=props;
+  
   const [inEditMode, SetEditMode] = useState(false);
+  const [form,setForm]=useState({
+    tweets:false,
+    tweetsandReplies:false,
+    media:false,
+    like:false
+
+  })
+  let className="T-weet"
+  let className1="T-weet-active"
   return (
     <div className="profileCard">
       <div>
@@ -52,17 +63,44 @@ const ProfileCard = (props) => {
         </div>
       </div>
       <div className="profileCard-footer">
-        <div className="T-weet">
-          <span>Tweets</span>
+        <div onClick={(previousForm) => {
+          setForm({ ...previousForm, tweet: true }); 
+        }} >
+          <div className={form.tweet?className1:className}>
+             <Link to="/">Tweets</Link>
+          </div>
+         
+       
         </div>
-        <div className="R-tweet">
-          <span>Tweet & Replies</span>
+        <div onClick={(previousForm) => {
+          setForm({ ...previousForm, tweetsandReplies:true }); 
+        }} >
+          <div className={form.tweetsandReplies?className1:className}>
+             <Link  >Tweets&Replies</Link>
+          </div>
+         
+       
+      
         </div>
-        <div className="T-media">
-          <span>Media</span>
+        <div onClick={(previousForm) => {
+          setForm({ ...previousForm, media:true }); 
+        }} >
+          <div className={form.media?className1:className}>
+             <Link >Media</Link>
+          </div>
+         
+       
+      
         </div>
-        <div className="T-Like">
-          <span>Like</span>
+        <div onClick={(previousForm) => {
+          setForm({ ...previousForm, like:true }); 
+        }} >
+          <div className={form.like?className1:className}>
+             <Link >Likes</Link>
+          </div>
+         
+       
+      
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ const TweetView = (props) => {
     timestamp,
     tlike,
     id,
+    replies_count,
     fileAttachment,
   } = tweet;
   const { username, displayName, image } = user;
@@ -77,7 +78,7 @@ const TweetView = (props) => {
                                                 
                         }}          >
                
-               <ReplyIcon/>
+               <ReplyIcon badge={replies_count}/>
                   {modalVisible && (
                  
                 <div>
@@ -105,7 +106,7 @@ const TweetView = (props) => {
                 <LikeIcon />
               </div>
               <div>
-               <span><ShareIcon />{tlike}
+               <span><ShareIcon />
        
                 </span>
                

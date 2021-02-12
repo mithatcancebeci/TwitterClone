@@ -80,7 +80,7 @@ const Nav = () => {
         />
       </Link>
       <Link
-        to=""
+        to="/"
         onClick={(previousForm) => {
           SetForm({ ...previousForm, explore: true });
         }}
@@ -92,7 +92,7 @@ const Nav = () => {
         />
       </Link>
       <Link
-        to=""
+        to="/"
         onClick={(previousForm) => {
           SetForm({ ...previousForm, notification: true });
         }}
@@ -105,7 +105,7 @@ const Nav = () => {
         />
       </Link>
       <Link
-        to=""
+        to="/"
         onClick={(previousForm) => {
           SetForm({ ...previousForm, message: true });
         }}
@@ -119,7 +119,7 @@ const Nav = () => {
       </Link>
 
       <Link
-        to=""
+        to="/"
         onClick={(previousForm) => {
           SetForm({ ...previousForm, bookmarks: true });
         }}
@@ -132,7 +132,7 @@ const Nav = () => {
         />
       </Link>
       <Link
-        to=""
+        to="/"
         onClick={(previousForm) => {
           SetForm({ ...previousForm, list: true });
         }}

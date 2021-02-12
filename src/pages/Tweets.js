@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import { getReply, oneTweet } from '../api/apiCall';
 import DefaultProfileImage from '../components/DefaultProfileImage';
 
 import Header from '../components/HeaderCard/Header'
+import ReplyModal from '../components/Modal/ReplyModal';
 import LikeIcon from '../components/Nav/icons/LikeIcon';
 import ReplyIcon from '../components/Nav/icons/ReplyIcon';
 import ReTweet from '../components/Nav/icons/ReTweet';
 import ShareIcon from '../components/Nav/icons/ShareIcon';
 import Stars from '../components/Nav/icons/Stars';
+import TweetSubmit from '../components/Tweet/TweetSubmit';
 const Tweets = (props) => {
   
     const [tweets,setTweets]=useState({})
     const [loaded,setloaded]=useState(false);
-    
+    const [modalVisible,setModalVisible]=useState(false)
     const id=props.match.params.id
 
    console.log("burdayız"+tweets)
@@ -78,12 +80,32 @@ const Tweets = (props) => {
             )}
             <div className="beat">
               <div>
-                <span
-                    >
-                    <ReplyIcon />
-                  
+              <span
+                        onClick={()=>{
+                         setModalVisible(true)
+                                                
+                        }}          >
+               
+               <ReplyIcon badge={tweets.replies_count}/>
+                  {modalVisible && (
+                 
+                <div>
+                  {tweets.fileAttachment?<ReplyModal
+                      have={true}
+                      tUsername={tweets.user.username}
+                      tDisplayName={tweets.user.displayName}
+                      replyProps={tweets.content}
+                      attachmentProps={tweets.fileAttachment.name}
+                      visible={true}
+                      contentProps={<TweetSubmit id={id} tR={false}/>} 
+                    ></ReplyModal>:<ReplyModal replyProps={tweets.content}   tUsername={tweets.user.username}
+                    tDisplayName={tweets.user.displayName}   have={false} visible={true} contentProps={<TweetSubmit id={id} tR={false}/>}/>}
+                 </div>
+              
+                 
+                  )}
                 </span>
-              </div>
+                </div>
               <div>
                 <ReTweet />
               </div>
@@ -133,7 +155,7 @@ const Tweets = (props) => {
                   <img
                     className="file-attachments"
                     src={"images/attachments/" + replies.fileAttachment.name}
-                    alt={replies.content}
+                    alt={replies.text}
                   ></img>
                 )}
                 {!replies.fileAttachment.fileType.startsWith("image") && (
@@ -143,11 +165,33 @@ const Tweets = (props) => {
             )}
               <div className="beat">
               <div>
-                <span
-                    >
-                    <ReplyIcon />
-                  
+              <div>
+              <span
+                        onClick={()=>{
+                         setModalVisible(true)
+                                                
+                        }}          >
+               
+               <ReplyIcon badge={tweets.replies_count}/>
+                  {modalVisible && (
+                 
+                <div>
+                  {replies.fileAttachment?<ReplyModal
+                      have={true}
+                      tUsername={replies.user.username}
+                      tDisplayName={replies.user.displayName}
+                      replyProps={replies.text}
+                      attachmentProps={replies.fileAttachment.name}
+                      visible={true}
+                      contentProps={<TweetSubmit id={id} tR={false}/>} 
+                    ></ReplyModal>:<ReplyModal replyProps={replies.text}   tUsername={replies.user.username}
+                    tDisplayName={replies.user.displayName}   have={false} visible={true} contentProps={<TweetSubmit id={id} tR={false}/>}/>}
+                 </div>
+              
+                 
+                  )}
                 </span>
+                </div>
               </div>
               <div>
                 <ReTweet />

@@ -27,21 +27,22 @@ function App() {
     <div className="app">
       <Router>
         {" "}
-        <Switch>
+       <Switch><>
           {isLoggedIn && (
             <>
             <div className="menu">
-               <Nav />
+                <Nav />
             </div>
              <div className="main">
                <Route exact path="/" component={HomePage}></Route>
                <Route exact path= "/user/:username" component={UserPage}></Route>
-             </div>
-             <div className="widgets">
                <Route exact path="/tweet/:id" component={Tweets}></Route>
              </div>
+             <div className="widgets">
+               
+             </div>
               
-             
+      
             </>
           )}
 
@@ -53,7 +54,7 @@ function App() {
           <Route path="/signup" component={UserSignUpPage}>
             {" "}
           </Route>
-        </Switch>
+              </></Switch>
       </Router>
     </div>
   );

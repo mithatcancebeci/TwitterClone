@@ -52,3 +52,6 @@ export const getUserOfReplies=(username,page=0)=>{
 export const oneTweet = (id)=>{
   return axios.get(`/api/1.0/tweet/${id}`)
 }
+export const getOneReply=(id)=>{
+  return axios.get(`/api/1.0/reply/${id}`)
+}

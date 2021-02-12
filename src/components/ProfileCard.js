@@ -49,7 +49,7 @@ const ProfileCard = (props) => {
           <span>{displayName}</span>
         </div>{" "}
         <div className="userinfo2">
-          <span>{username}</span>
+          <span>@{username}</span>
         </div>
         <div className="bio">
           <span>Samsun-SDÜ</span>

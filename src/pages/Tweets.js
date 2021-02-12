@@ -46,7 +46,7 @@ const Tweets = (props) => {
             
           />
           <div className="flex-fill m-auto pl-2">
-            <Link to={`user/${tweets.user.username}`} className="text-dark">
+            <Link to={`/user/${tweets.user.username}`} className="text-dark">
               <h6>
                 <strong>{tweets.user.displayName}</strong>
                 <span
@@ -118,7 +118,7 @@ const Tweets = (props) => {
             className="rounded-circle"
             
           />  <div className="flex-fill m-auto pl-2">
-          <Link to={`user/${replies.user.username}`} className="text-dark">
+          <Link to={`/user/${replies.user.username}`} className="text-dark">
             <h6>
               <strong>{replies.user.displayName}</strong>
               <span
@@ -133,7 +133,7 @@ const Tweets = (props) => {
             </h6>
           </Link>
           <div>
-             {replies.text} 
+            <Link to={`/reply/${replies.id}`} style={{textDecoration:"none",color:"black"}}>{replies.text} </Link> 
              
              </div>
              {replies.fileAttachment && (

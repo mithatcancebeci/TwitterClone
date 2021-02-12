@@ -24,7 +24,7 @@ const[modalVisible,setModalVisible]=useState(false);
              
             />
             <div className="flex-fill m-auto pl-2">
-              <Link to={`user/${tweet.user.username}`} className="text-dark">
+              <Link to={`/user/${tweet.user.username}`} className="text-dark">
                 <h6>
                   <strong>{tweet.user.displayName}</strong>
                   <span
@@ -39,7 +39,7 @@ const[modalVisible,setModalVisible]=useState(false);
                 </h6>
               </Link>
               <div>
-                <Link to={`tweet/${tweet.id}`}  className="oneTweet"> {tweet.content} </Link>
+                <Link to={`/tweet/${tweet.id}`}  className="oneTweet"> {tweet.content} </Link>
               
               </div>
               {tweet.fileAttachment && (

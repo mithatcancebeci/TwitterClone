@@ -1,6 +1,6 @@
 import {
   Route,
-  HashRouter as Router,
+  BrowserRouter as Router ,
   Redirect,
   Switch,
   HashRouter,

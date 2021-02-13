@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonWithProg from "../ButtonWithProg";
 import CloseIcon from '../Nav/icons/CloseIcon'
 import DefaultBackgroundImage from '../DefaultBackgroundImage/DefaultBackgroundImage'
 import './Modal.css'
 import DefaultProfileImage from "../DefaultProfileImage";
 import InputComp from "../InputComp";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 const EditModal = (props) => {
-const {visible}=props;
+  const { username: loggedInUsername } = useSelector(store => ({ username: store.username }));
+  const routeParams = useParams();
+  const pathUsername = routeParams.username;
+  const [user,setUser]=useState();
+  const [updatedDisplayName,setDisplayName]=useState();
+useEffect(()=>{
+setUser(props.user)
+})
+  const {visible}=props;
 
     let className = "modal fade";
     if (visible) {

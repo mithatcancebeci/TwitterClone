@@ -4,16 +4,21 @@ import './Modal.css'
 import CloseIcon from "../Nav/icons/CloseIcon";
 import { Link } from "react-router-dom";
 import DefaultProfileImage from "../DefaultProfileImage";
+import UploadImage from "../UploadImage";
+import ProfileOutlinedIcon from "../Nav/icons/ProfileOutlinedIcon";
+import ListOutlinedIcon from "../Nav/icons/ListOutlinedIcon";
+import ReplySubmit from "../Replies/ReplySubmit";
 const ReplyModal = (props) => {
   
   
     const {
   visible, contentProps,replyProps,text,onClicked,have,tUsername,tDisplayName,
-    attachmentProps } = props;
+    attachmentProps,have2} = props;
   let className = "modal fade";
   if (visible) {
     className += "show d-block";
   }
+  
   return (
     <div>
       <div className={className} style={{ backgroundColor: "#000000b0" }}>
@@ -66,8 +71,8 @@ const ReplyModal = (props) => {
            
             
               <div className="contentProps">
-                {contentProps}
-              </div>
+{              contentProps
+}              </div>
              
                  </div>
           

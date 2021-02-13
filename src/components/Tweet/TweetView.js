@@ -7,6 +7,7 @@ import ReplyIcon from "../Nav/icons/ReplyIcon";
 import ReTweet from "../Nav/icons/ReTweet";
 import ShareIcon from "../Nav/icons/ShareIcon";
 import TweetSubmit from "./TweetSubmit";
+import ReplySubmit from "../Replies/ReplySubmit";
 
 
 
@@ -84,15 +85,16 @@ const TweetView = (props) => {
                   <div>
                     {fileAttachment?<ReplyModal
                         have={true}
-                        
+                        have2={true}
                         tUsername={username}
                         tDisplayName={displayName}
                         replyProps={content}
                         attachmentProps={fileAttachment.name}
                         visible={true}
-                        contentProps={<TweetSubmit id={id} tR={false}/>} 
-                      ></ReplyModal>:<ReplyModal replyProps={content}   tUsername={username}
-                      tDisplayName={displayName}   have={false} visible={true} contentProps={<TweetSubmit id={id} tR={false}/>}/>}
+                        contentProps={<ReplySubmit id={id}/>}
+                       
+                      ></ReplyModal>:<ReplyModal replyProps={content}  contentProps={<ReplySubmit id={id}/>}  tUsername={username} 
+                      tDisplayName={displayName}   have={false} visible={true} />}
                   </div>
                 
                   

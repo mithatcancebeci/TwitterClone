@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  postReply, postTweet, postTweetAttachment ,postReplyAttachment} from "../../api/apiCall";
+import {  postReply, postTweet, postTweetAttachment } from "../../api/apiCall";
 import "./Tweet.css";
 import DefaultProfileImage from "../DefaultProfileImage";
 import ButtonWithProg from "../ButtonWithProg";
@@ -16,14 +16,14 @@ const TweetSubmit = (props) => {
   const { image } = useSelector((store) => ({
     image: store.image,
   }));
-  const{tR}=props;
-const{id}=props;
+ 
+
   const [focused, setFocused] = useState(false);
   const [errors, SetErrors] = useState({});
   const [newImage, SetNewImage] = useState();
-  const [attachmentId, setAttachmentId] = useState();
-  const [attachmentRepliesId,setAttachmentRepliesId]=useState();
 
+  const [attachmentId, setAttachmentId] = useState();
+ 
   useEffect(() => {
     if (!focused) {
       setTweet("");
@@ -50,44 +50,15 @@ const{id}=props;
       }
     }
   };
-  const onClickReply = async () => {
-    const body = {
-      text: tweetMessage,
-      attachmentId: attachmentId,
-    };
-    try {
-      await postReply(id,body);
-      setFocused(false);
-    } catch (e) {
-      if (e.response.data.validationErrors) {
-        SetErrors(e.response.data.validationErrors);
-      }
-    }
-  };
-  const uploadFileReplies= async(file)=>{
-    const attachmentReplies=new FormData();
-    attachmentReplies.append("file",file)
-    const response=await postReplyAttachment(attachmentReplies);
-    setAttachmentRepliesId(response.data.id)
-  }
+ 
+
     const uploadFile = async (file) => {
     const attachment = new FormData();
     attachment.append("file", file);
     const response = await postTweetAttachment(attachment);
     setAttachmentId(response.data.id);
   };
-  const onChangeReplyFile=(event)=>{
-    if(event.target.files.length<1){
-      return
-    }
-    const file=event.target.files[0]
-    const fileReader=new FileReader();
-    fileReader.onloadend=()=>{
-      SetNewImage(fileReader.result);
-      uploadFileReplies(file)
-    }
-fileReader.readAsDataURL(file);
-  }
+
   const onChangeFile = (event) => {
     if (event.target.files.length < 1) {
       return;
@@ -120,23 +91,24 @@ fileReader.readAsDataURL(file);
             onChange={(e) =>setTweet(e.target.value)}
             value={tweetMessage}
             onFocus={() => setFocused(true)}
-            placeholder={tR?"What's Happening?":"Your Reply Tweet"}
+            placeholder={"What's Happening?"}
             type="text"
           />
         </div>
         <div className="invalid-feedback">{errors.content}</div>
         <div className="share">
           <div className="share1">
-            {!newImage && (
+            {!newImage  && (
               <InputComp
                 icon={<ImageShare />}
                 active
                 id="upload-photo"
                 type="file"
               
-                onChange={tR?onChangeFile:onChangeReplyFile}
+                onChange={ onChangeFile}
               ></InputComp>
             )}
+            
             {newImage && (
               <UploadImage
                 image={newImage}
@@ -145,11 +117,12 @@ fileReader.readAsDataURL(file);
                 icon={<ListOutlinedIcon />}
               ></UploadImage>
             )}
+         
           </div>
     <ButtonWithProg
-            onClick={tR ? onClickTweet : onClickReply}
+            onClick={onClickTweet}
             type="submit"
-            text={tR?"Tweet":"Reply"}
+            text="Tweet"
             className="ttButton"
             disabled={tweetMessage.length===0 && !newImage}
           ></ButtonWithProg>{" "}

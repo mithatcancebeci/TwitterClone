@@ -175,7 +175,7 @@ const Nav = () => {
         icon8={<Keyboard/>}
       ></MoreButton>
       <ButtonWithProg  onClick={()=>setTweetMode(true)} className="tweetButton" text="Tweet"/>
-      {tweetMode&& <ReplyModal visible={true}  contentProps={<TweetSubmit tR={true}/>}></ReplyModal>}
+      {tweetMode&& <ReplyModal visible={true}  contentProps={<TweetSubmit/>}></ReplyModal>}
       <ProfilePopover className="profilePopover" logOutClick={onClickLogOut}  username={username} displayName={displayName} image={image} />
    </div>
   

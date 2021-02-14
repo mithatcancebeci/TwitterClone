@@ -104,7 +104,7 @@ const TweetSubmit = (props) => {
                 active
                 id="upload-photo"
                 type="file"
-              
+                
                 onChange={ onChangeFile}
               ></InputComp>
             )}

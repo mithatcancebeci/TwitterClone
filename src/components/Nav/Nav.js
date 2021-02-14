@@ -20,7 +20,6 @@ import HelpCenter from "../MoreButtonIcons/HelpCenter";
 import DisplayIcon from "../MoreButtonIcons/DisplayIcon";
 import Keyboard from "../MoreButtonIcons/Keyboard";
 import ProfilePopover from "../ProfilePopover";
-import CheckIcon from "../MoreButtonIcons/CheckIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutSuccess } from "../../redux/authAction";
 import './Nav.css'

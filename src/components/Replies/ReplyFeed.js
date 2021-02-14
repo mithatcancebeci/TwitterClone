@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getUserOfReplies } from '../../api/apiCall';
+import {getReplies} from '../../api/apiCall'
 import ReplyView from './ReplyView';
 
 const ReplyFeed = (props) => {
@@ -9,13 +8,14 @@ const ReplyFeed = (props) => {
        number:0,
        last:true
    })
-   const{username}=props;
+   const{username}=props
+   const {id}=props;
    const {content}=RepliesPage
    
     useEffect(()=>{
-        const getReplies = async (page) => {
+        const getReply = async (page) => {
             try {
-              const response = await getUserOfReplies(username,page);
+              const response = await getReplies(username,id,page);
               setRepliesPage((previousRepliesPage) => ({
                 ...response.data,
                 content: [...previousRepliesPage.content, ...response.data.content],
@@ -24,7 +24,7 @@ const ReplyFeed = (props) => {
           };
       
   
-     getReplies();
+     getReply();
   
     },[username]);
     return (

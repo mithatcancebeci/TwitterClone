@@ -8,7 +8,7 @@ const InputComp = (props) => {
     active,
     onChange,
     error,
-    label,
+ 
     size,
     style,
     defaultValue,
@@ -23,7 +23,7 @@ const InputComp = (props) => {
   return (
     <div className="form-group ">
       {active && (
-        <label htmlFor={id} style={{ cursor: "pointer" }}>
+        <label for={id} style={{ cursor: "pointer" }}>
           {icon}
         </label>
       )}

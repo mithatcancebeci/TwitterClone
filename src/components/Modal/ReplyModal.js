@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-
+import React from "react";
 import './Modal.css'
 import CloseIcon from "../Nav/icons/CloseIcon";
 import { Link } from "react-router-dom";
 import DefaultProfileImage from "../DefaultProfileImage";
-import UploadImage from "../UploadImage";
-import ProfileOutlinedIcon from "../Nav/icons/ProfileOutlinedIcon";
-import ListOutlinedIcon from "../Nav/icons/ListOutlinedIcon";
-import ReplySubmit from "../Replies/ReplySubmit";
+
 const ReplyModal = (props) => {
   
   

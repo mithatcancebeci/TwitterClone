@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useParams } from "react-router-dom";
+
 import ButtonWithProg from "./ButtonWithProg";
 import DefaultBackgroundImage from "./DefaultBackgroundImage/DefaultBackgroundImage";
 import DefaultProfileImage from "./DefaultProfileImage";
-import { updateUser } from "../api/apiCall";
+
 import "./ProfileCard.css";
-import ReplyModal from "./Modal/ReplyModal";
-import { updateSuccess } from "../redux/authAction";
-import Stars from "./Nav/icons/Stars";
+
 import EditModal from "./Modal/EditModal"
 import TweetFeed from "./Tweet/TweetFeed";
 import ReplyFeed from "./Replies/ReplyFeed";

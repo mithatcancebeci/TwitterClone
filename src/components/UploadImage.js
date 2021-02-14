@@ -5,7 +5,7 @@ const UploadImage = (props) => {
     return (
         <div >
           <div className="text-center">
-             <img className="attachments" src={image} alt="tweet-attachment"></img>
+             <img className="attachments" src={image} alt=""></img>
         
           </div> 
           <div className="tagPeople">

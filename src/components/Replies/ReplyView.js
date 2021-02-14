@@ -6,7 +6,7 @@ import LikeIcon from '../Nav/icons/LikeIcon';
 import ReplyIcon from '../Nav/icons/ReplyIcon';
 import ReTweet from '../Nav/icons/ReTweet';
 import ShareIcon from '../Nav/icons/ShareIcon';
-import TweetSubmit from '../Tweet/TweetSubmit';
+
 
 const ReplyView = (props) => {
     const{reply}=props;
@@ -76,9 +76,9 @@ const[modalVisible,setModalVisible]=useState(false);
                         replyProps={tweet.content}
                         attachmentProps={tweet.fileAttachment.name}
                         visible={true}
-                        contentProps={<TweetSubmit id={tweet.id} tR={false}/>} 
+                         
                       ></ReplyModal>:<ReplyModal replyProps={tweet.content}   tUsername={tweet.user.username}
-                      tDisplayName={tweet.user.displayName}   have={false} visible={true} contentProps={<TweetSubmit id={tweet.id} tR={false}/>}/>}
+                      tDisplayName={tweet.user.displayName}   have={false} visible={true}/>}
                   </div>
                 
                   

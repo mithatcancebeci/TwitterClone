@@ -6,15 +6,15 @@ import LikeIcon from '../Nav/icons/LikeIcon';
 import ReplyIcon from '../Nav/icons/ReplyIcon';
 import ReTweet from '../Nav/icons/ReTweet';
 import ShareIcon from '../Nav/icons/ShareIcon';
+import TweetSubmit from '../Tweet/TweetSubmit';
 
 
 const ReplyView = (props) => {
-    const{reply}=props;
+    const{reply,page}=props;
 const{id,text,user,fileVM,tweet}=reply;
 const[modalVisible,setModalVisible]=useState(false);
     return (
-        <div>
-            <div>
+        
         <div className="card">
           <div className="d-flex">
             <DefaultProfileImage
@@ -24,9 +24,9 @@ const[modalVisible,setModalVisible]=useState(false);
              
             />
             <div className="flex-fill m-auto pl-2">
-              <Link to={`/user/${tweet.user.username}`} className="text-dark">
+              <Link to={page?`/user/${tweet.user.username}`:`/user/${reply.user.username}`} className="text-dark">
                 <h6>
-                  <strong>{tweet.user.displayName}</strong>
+                  <strong>{page?tweet.user.displayName:reply.user.displayName}</strong>
                   <span
                     style={{
                       color: "#5b7083",
@@ -34,24 +34,24 @@ const[modalVisible,setModalVisible]=useState(false);
                       paddingLeft: "3px",
                     }}
                   >
-                    @{reply.tweet.user.username}{" "}
+                    @{page?tweet.user.username:reply.user.username}{" "}
                   </span>
                 </h6>
               </Link>
               <div>
-                <Link to={`/tweet/${tweet.id}`}  className="oneTweet"> {tweet.content} </Link>
+                <Link to={`/tweet/${tweet.id}`}  className="oneTweet"> {page?tweet.content:reply.text} </Link>
               
               </div>
-              {tweet.fileAttachment && (
+              {(page?tweet.fileAttachment:reply.fileVM) && (
                 <div className="files">
-                  {tweet.fileAttachment.fileType.startsWith("image") && (
+                  {(page?tweet.fileAttachment.fileType:reply.fileVM.fileType).startsWith("image") && (
                     <img
                       className="file-attachments"
-                      src={"images/attachments/" + tweet.fileAttachment.name}
-                      alt={tweet.content}
+                      src={"images/attachments/" + page?tweet.fileAttachment.name:reply.fileVM.name}
+                      alt={page?tweet.content:reply.text}
                     ></img>
                   )}
-                  {!tweet.fileAttachment.fileType.startsWith("image") && (
+                  {(page?!tweet.fileAttachment.fileType:!reply.fileVM.fileType).startsWith("image") && (
                     <strong>Unkown Property</strong>
                   )}
                 </div>
@@ -76,6 +76,7 @@ const[modalVisible,setModalVisible]=useState(false);
                         replyProps={tweet.content}
                         attachmentProps={tweet.fileAttachment.name}
                         visible={true}
+                        contentProps={<TweetSubmit id={tweet.id} tR={false}/>}
                          
                       ></ReplyModal>:<ReplyModal replyProps={tweet.content}   tUsername={tweet.user.username}
                       tDisplayName={tweet.user.displayName}   have={false} visible={true}/>}
@@ -104,8 +105,7 @@ const[modalVisible,setModalVisible]=useState(false);
             </div>
           </div>
         </div>
-    </div>
-        </div>
+   
     );
 };
 

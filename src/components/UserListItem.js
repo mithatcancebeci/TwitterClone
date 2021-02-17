@@ -9,11 +9,11 @@ const UserListItem = (props) => {
  
   return (
     
-    <Link to={`/user/${username}`} className="list-group-item list-group-item-action" style={{backgroundColor:"#ebeef0",borderBlockColor:"#ebeef0"}}>
+    <Link to={`/user/${username}`} className="list-group-item list-group-item-action" style={{backgroundColor:"#white",borderBlockColor:"#ebeef0"}}>
           
         <DefaultProfileImage
         
-          className="rounded"
+          className="rounded-circle"
           width="36px"
           height="36px"
           alt={`${username} profile`}
@@ -21,9 +21,9 @@ const UserListItem = (props) => {
         ></DefaultProfileImage>
      
     
-       <span className="d-flex-auto pl-3"style={{font:"inherit",fontWeight:"bolder"}}> <span>{displayName}</span></span>
+       <span className="d-flex-auto pl-1"style={{font:"inherit",fontWeight:"bolder"}}> <span>{displayName}</span></span><span style={{paddingLeft:"2px"}}>@{username}</span>
        <br></br>
-     <span style={{paddingLeft:"55px"}}>{username}</span>
+       <span style={{paddingLeft:"45px"}}>textMessage</span>
      
      
     </Link>

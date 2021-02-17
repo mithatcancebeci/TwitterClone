@@ -8,7 +8,7 @@ const ReplyFeed = (props) => {
        number:0,
        last:true
    })
-   const{username}=props
+   const{username,page}=props
    const {id}=props;
    const {content}=RepliesPage
    
@@ -30,7 +30,7 @@ const ReplyFeed = (props) => {
     return (
         <div>
             {content.map((reply) => {
-        return <ReplyView key={reply.id} reply={reply}></ReplyView>;
+        return <ReplyView key={reply.id} reply={reply} page={page}></ReplyView>;
       })} 
         </div>
     );

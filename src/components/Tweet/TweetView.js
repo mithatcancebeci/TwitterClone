@@ -6,6 +6,8 @@ import LikeIcon from "../Nav/icons/LikeIcon";
 import ReplyIcon from "../Nav/icons/ReplyIcon";
 import ReTweet from "../Nav/icons/ReTweet";
 import ShareIcon from "../Nav/icons/ShareIcon";
+import ReplySubmit from "../Replies/ReplySubmit";
+import TweetSubmit from "./TweetSubmit";
 
 
 const TweetView = (props) => {
@@ -54,7 +56,7 @@ const TweetView = (props) => {
                 <Link to={`tweet/${id}`}  className="oneTweet"> {content} </Link>
               
               </div>
-              {fileAttachment && (
+            {fileAttachment && (
                 <div className="files">
                   {fileAttachment.fileType.startsWith("image") && (
                     <img
@@ -88,10 +90,10 @@ const TweetView = (props) => {
                         replyProps={content}
                         attachmentProps={fileAttachment.name}
                         visible={true}
-                      
+                        contentProps={<TweetSubmit></TweetSubmit>}
                        
                       ></ReplyModal>:<ReplyModal replyProps={content}   tUsername={username} 
-                      tDisplayName={displayName}   have={false} visible={true} />}
+                      tDisplayName={displayName}   have={false} visible={true}    contentProps={<TweetSubmit></TweetSubmit>} />}
                   </div>
                 
                   

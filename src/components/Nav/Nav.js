@@ -104,7 +104,7 @@ const Nav = () => {
         />
       </Link>
       <Link
-        to="/"
+        to="/messages"
         onClick={(previousForm) => {
           SetForm({ ...previousForm, message: true });
         }}

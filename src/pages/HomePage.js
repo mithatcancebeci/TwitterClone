@@ -11,7 +11,7 @@ const HomePage = () => {
    return (
     <div>
    <Header icon1={<Stars/>} text="Home"/>
-   <TweetSubmit/>
+   <TweetSubmit tr={true}/>
    <TweetFeed/>
    
    </div>

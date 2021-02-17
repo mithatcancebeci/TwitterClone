@@ -18,6 +18,7 @@ const TweetSubmit = (props) => {
   }));
  
 
+ 
   const [focused, setFocused] = useState(false);
   const [errors, SetErrors] = useState({});
   const [newImage, SetNewImage] = useState();
@@ -50,7 +51,7 @@ const TweetSubmit = (props) => {
       }
     }
   };
- 
+
 
     const uploadFile = async (file) => {
     const attachment = new FormData();
@@ -65,7 +66,7 @@ const TweetSubmit = (props) => {
     }
     const file = event.target.files[0];
     const fileReader = new FileReader();
-    fileReader.onloadend = () => {
+    fileReader.onload= () => {
       SetNewImage(fileReader.result);
       uploadFile(file);
     };

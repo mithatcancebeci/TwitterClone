@@ -105,12 +105,12 @@ const Tweets = (props) => {
                <span><ShareIcon />
               
                 </span>
-          <ReplyFeed id={id}/>
+    
               </div>
-           
+
             </div>   
           </div>
-        </div>
+        </div>                 <ReplyFeed id={id} page={false}/>
       </div> </>}
     </div> 
      

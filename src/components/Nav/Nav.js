@@ -57,7 +57,8 @@ const Nav = () => {
   let className1 = "icon active";
 
   return (
-    <div className="navi">    
+    <div className="fixed-left">
+            <div className="navi">    
             <Link to="/"  onClick={(previousForm) => {
           SetForm({ ...previousForm, home: true });
         }}>
@@ -177,7 +178,7 @@ const Nav = () => {
       {tweetMode&& <ReplyModal visible={true}  contentProps={<TweetSubmit/>}></ReplyModal>}
       <ProfilePopover className="profilePopover" logOutClick={onClickLogOut}  username={username} displayName={displayName} image={image} />
    </div>
-  
+  </div>
   );
 };
 

@@ -23,7 +23,7 @@ const UserListItem = (props) => {
     
        <span className="d-flex-auto pl-1"style={{font:"inherit",fontWeight:"bolder"}}> <span>{displayName}</span></span><span style={{paddingLeft:"2px"}}>@{username}</span>
        <br></br>
-       <span style={{paddingLeft:"45px"}}>textMessage</span>
+       <span style={{paddingLeft:"45px",cursor:"pointer"}}>textMessage</span>
      
      
     </Link>

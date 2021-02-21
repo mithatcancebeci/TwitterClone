@@ -58,3 +58,8 @@ export const oneTweet = (id)=>{
 export const getOneReply=(id)=>{
   return axios.get(`/api/1.0/reply/${id}`)
 }
+
+export const findMessage=(senderName,recipientName)=>{
+  return axios.get(`/messages/${senderName}/${recipientName}`)
+
+}

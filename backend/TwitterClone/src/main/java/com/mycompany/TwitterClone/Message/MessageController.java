@@ -14,6 +14,10 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycompany.TwitterClone.User.User;
+
+import shared.CurrentUser;
+
 @RestController
 public class MessageController {
    
@@ -26,8 +30,11 @@ public class MessageController {
 	SimpMessagingTemplate messageTemplate;
 	@MessageMapping("/messages")
 	public void sendSpecific(
-			  @Payload Message msg
+			  @Payload Message msg,
+			  @CurrentUser
+			  User user
 						  ) throws Exception { 
+		msg.setSenderName(user.getUsername());
 			    MessageVM out = new MessageVM(
 			      msg.getSenderName(), 
 			      msg.getText(),

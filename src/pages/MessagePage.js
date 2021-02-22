@@ -1,5 +1,7 @@
 import React from 'react';
 import Chat from '../components/Chat';
+import FireBase from '../components/FireBaseMessaging';
+import FireBaseMessaging from '../components/FireBaseMessaging';
 import Header from '../components/HeaderCard/Header';
 import MessageIcon from '../components/Nav/icons/MessageIcon';
 import WebSocketDemo from '../components/WebSocketDemo';
@@ -18,7 +20,7 @@ const MessagePage = () => {
         <WhoToFollow/>
         </div>
         <div className="col">
-        <WebSocketDemo/>
+        <FireBase/>
         </div>
         <div className="col">
       

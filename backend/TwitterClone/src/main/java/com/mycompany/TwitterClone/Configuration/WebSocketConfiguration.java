@@ -3,8 +3,13 @@ package com.mycompany.TwitterClone.Configuration;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.nio.sctp.Notification;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.converter.DefaultContentTypeResolver;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.converter.MessageConverter;
@@ -33,8 +38,11 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer{
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/messages").withSockJS();
     }
-   
+    
+
 }
+
+   
 	   
 
 

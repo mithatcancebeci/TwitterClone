@@ -2,7 +2,7 @@ package com.mycompany.TwitterClone.Reply.ReplyVM;
 
 import java.util.List;
 
-import com.mycompany.TwitterClone.FileVM.FileVM;
+import com.mycompany.TwitterClone.File.FileVM.FileVM;
 import com.mycompany.TwitterClone.Reply.Reply;
 import com.mycompany.TwitterClone.User.UserVM.UserVM;
 import com.mycompany.TwitterClone.tweet.TweetVm.TweetVM;

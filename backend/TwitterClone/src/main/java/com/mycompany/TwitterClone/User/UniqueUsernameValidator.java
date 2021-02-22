@@ -5,8 +5,6 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-
-
 public class UniqueUsernameValidator implements ConstraintValidator<UniqueUsername,String>{
     @Autowired
 	UserRepository userRepository;
@@ -19,4 +17,5 @@ public class UniqueUsernameValidator implements ConstraintValidator<UniqueUserna
 		}
 		return true;
 	}
+
 }

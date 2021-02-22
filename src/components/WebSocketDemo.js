@@ -37,7 +37,7 @@ const WebSocketDemo = () => {
     if (msg.trim() !== ""){
         const message = {
         senderName: username,
-        recipientName:"user1",
+        recipientName:'user1',
         text: msg,
         
       };

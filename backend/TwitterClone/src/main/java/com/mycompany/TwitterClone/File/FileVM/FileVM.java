@@ -1,4 +1,4 @@
-package com.mycompany.TwitterClone.FileVM;
+package com.mycompany.TwitterClone.File.FileVM;
 
 import com.mycompany.TwitterClone.File.FileAttachment;
 

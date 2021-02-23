@@ -22,14 +22,13 @@ const ReplySubmit = (props) => {
     const [errors, SetErrors] = useState({});
     const [replyImage, SetReplyImage] = useState();
   
-    const [AttachmentRepliesId, setAttachmentRepliesId] = useState();
    
     useEffect(() => {
       if (!focused) {
         setReplyMessage("");
         SetErrors({});
         SetReplyImage();
-        setAttachmentRepliesId();
+
       
       }
     }, [focused]);
@@ -40,8 +39,7 @@ const ReplySubmit = (props) => {
     const onClickReply = async () => {
       const body = {
         text: replyMessage,
-        AttachmentRepliesId: AttachmentRepliesId,
-      };
+       };
       try {
         await postReply(id,body);
         setFocused(false);
@@ -52,27 +50,8 @@ const ReplySubmit = (props) => {
       }
     };
   
-    const uploadFile = async (file) => {
-      const attachment = new FormData();
-      attachment.append("files", file);
-      const response = await postTweetAttachment(attachment);
-      setAttachmentRepliesId(response.data.id);
-    };
-
-    const onChangeReplyFile=(event)=>{
-      if(event.target.files.length<1){
-        return
-      }
-      const file=event.target.files[0]
-      const fileReader=new FileReader();
-      fileReader.onload=()=>{
-        SetReplyImage(fileReader.result);
-        uploadFile(file)
-      }
-  fileReader.readAsDataURL(file);
-    }
+    
    
-    const pendingUploadFiles = useApiProgress("post","/api/1.0/tweet-attachments",true);
     return (
       <div className="tweetSubmit">
         <form>
@@ -94,28 +73,7 @@ const ReplySubmit = (props) => {
           </div>
           <div className="invalid-feedback">{errors.content}</div>
           <div className="share">
-            <div className="share1">
-              {!replyImage  && (
-                <InputComp
-                  icon={<ImageShare />}
-                  active
-                  id="upload-photo"
-                  type="file"
-                  name="file"
-                 onChange={onChangeReplyFile}
-                ></InputComp>
-              )}
-              
-              {replyImage && (
-                <UploadImage
-                  image={replyImage}
-                  uploading={pendingUploadFiles}
-                  icon1={<ProfileOutlinedIcon />}
-                  icon={<ListOutlinedIcon />}
-                ></UploadImage>
-              )}
-           
-            </div>
+          
       <ButtonWithProg
               onClick={onClickReply}
               type="submit"

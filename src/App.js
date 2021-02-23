@@ -15,12 +15,13 @@ import "./App.css";
 import UserPage from "./pages/UserPage";
 import Nav from "./components/Nav/Nav";
 import Tweets from "./pages/Tweets";
-import MessagePage from "./pages/MessagePage";
+
 
 function App() {
-  const { isLoggedIn} = useSelector((store) => {
+  const {username, isLoggedIn} = useSelector((store) => {
     return {
       isLoggedIn: store.isLoggedIn,
+      username:store.username
 
     };
   });
@@ -36,7 +37,6 @@ function App() {
             </div>
              <div className="main">
                <Route exact path="/" component={HomePage}></Route>
-               <Route exact path="/messages" component={MessagePage}></Route>
                <Route exact path= "/user/:username" component={UserPage}></Route>
                <Route exact path="/tweet/:id" component={Tweets}></Route>
              </div>

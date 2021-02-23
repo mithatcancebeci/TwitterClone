@@ -2,12 +2,7 @@ package com.mycompany.TwitterClone.tweet.TweetVm;
 
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.mycompany.TwitterClone.File.FileVM.FileVM;
-import com.mycompany.TwitterClone.Reply.Reply;
-import com.mycompany.TwitterClone.Reply.ReplyVM.ReplyVM;
 import com.mycompany.TwitterClone.User.UserVM.UserVM;
 import com.mycompany.TwitterClone.tweet.Tweet;
 import lombok.Data;

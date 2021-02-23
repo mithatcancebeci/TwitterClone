@@ -107,7 +107,7 @@ const ProfileCard = (props) => {
       </div>         
      {form.tweet && <TweetFeed/>}
      {form.tweetsandReplies &&<> <TweetFeed/> <ReplyFeed username={username} page={true}/></>}
-     {form.media && <TweetFeed/>}
+   
     </div>
   );
 };

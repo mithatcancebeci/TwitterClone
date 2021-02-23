@@ -1,6 +1,5 @@
 package com.mycompany.TwitterClone.Reply.ReplyVM;
 
-import java.util.List;
 
 import com.mycompany.TwitterClone.File.FileVM.FileVM;
 import com.mycompany.TwitterClone.Reply.Reply;

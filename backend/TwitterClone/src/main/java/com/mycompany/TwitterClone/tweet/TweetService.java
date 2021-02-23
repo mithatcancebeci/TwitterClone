@@ -1,20 +1,11 @@
 package com.mycompany.TwitterClone.tweet;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
-
-import javax.validation.Valid;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
 import org.springframework.stereotype.Service;
-
 import com.mycompany.TwitterClone.Error.NotFoundException;
 import com.mycompany.TwitterClone.File.FileAttachment;
 import com.mycompany.TwitterClone.File.FileAttachmentRepository;
@@ -23,9 +14,7 @@ import com.mycompany.TwitterClone.User.UserRepository;
 import com.mycompany.TwitterClone.User.UserService;
 import com.mycompany.TwitterClone.tweet.TweetVm.TweetSubmitVM;
 import com.mycompany.TwitterClone.tweet.TweetVm.TweetUpdateVM;
-import com.mycompany.TwitterClone.tweet.TweetVm.TweetVM;
 
-import shared.GenericResponse;
 
 @Service
 public class TweetService {

@@ -34,9 +34,12 @@ public class FileService {
 	public String writeBase64EncodedStringToFile(String image) throws IOException {
 		String fileName = generateRandomName();
 		File target = new File(appConfiguration.getProfileStorage() + "/" + fileName);
-		OutputStream outputStream = new FileOutputStream(target);
-		byte[] base64encoded = Base64.getDecoder().decode(image);
-		outputStream.write(base64encoded);
+		try (OutputStream outputStream = new FileOutputStream(target)) {
+			byte[] base64encoded = Base64.getDecoder().decode(image);
+			outputStream.write(base64encoded);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return fileName;
 	}
 

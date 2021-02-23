@@ -1,7 +1,5 @@
 package com.mycompany.TwitterClone.tweet.TweetVm;
 
-import java.util.Date;
-import java.util.List;
 
 import lombok.Data;
 

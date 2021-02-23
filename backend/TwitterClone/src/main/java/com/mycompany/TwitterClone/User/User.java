@@ -13,14 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.mycompany.TwitterClone.Message.Message;
 import com.mycompany.TwitterClone.Reply.Reply;
 import com.mycompany.TwitterClone.tweet.Tweet;
 
